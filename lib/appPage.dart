@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 import 'package:portfolio2/Screens/Projects/latestProjectsPage.dart';
 import 'package:portfolio2/Screens/aboutMe/aboutMePage.dart';
+import 'package:portfolio2/Screens/contact/contactPage.dart';
 import 'package:portfolio2/Screens/drone/dronePage.dart';
 import 'package:portfolio2/Screens/homePage/homePage.dart';
 
@@ -29,6 +30,7 @@ class _AppPageState extends State<AppPage> {
             SizedBox(height: 80),
             DronePage(),
             SizedBox(height: 200),
+            ContactPage()
           ],
         ),
       ),
