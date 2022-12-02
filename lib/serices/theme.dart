@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static final ThemeData darkTheme =
-      ThemeData(scaffoldBackgroundColor: Color(0xfff4f4f4));
+      ThemeData(scaffoldBackgroundColor: Color(0xffE9ECF3));
 
-  static final ThemeData lightTheme = ThemeData();
+  static final ThemeData lightTheme =
+      ThemeData(scaffoldBackgroundColor: Color(0xffE9ECF3));
 }
 
 class CustomColors {
@@ -37,4 +38,8 @@ class CustomColors {
   Color get aboutMeAccent => brightness() == Brightness.light
       ? const Color(0xFF1d5e76)
       : const Color(0xffA8D8EA);
+
+  Color get projectTileColor => brightness() == Brightness.light
+      ? const Color(0xFFF5F5F5)
+      : Colors.grey[700]!;
 }

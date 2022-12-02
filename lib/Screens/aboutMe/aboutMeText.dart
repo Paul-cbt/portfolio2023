@@ -102,6 +102,14 @@ List<InlineSpan> aboutMeTextSpans(double fontSize, BuildContext context) {
         color: CustomColors(context: context).aboutMeAccent,
         fontFamily: "QuickSand",
       ),
-    )
+    ),
+    TextSpan(
+      text: " like firebase, node.js, swift or various apis",
+      style: TextStyle(
+        fontSize: fontSize,
+        color: CustomColors(context: context).textColor,
+        fontFamily: "QuickSand",
+      ),
+    ),
   ];
 }

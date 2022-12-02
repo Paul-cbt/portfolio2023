@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
+import 'package:portfolio2/Screens/Projects/latestProjectsPage.dart';
 import 'package:portfolio2/Screens/aboutMe/aboutMePage.dart';
+import 'package:portfolio2/Screens/drone/dronePage.dart';
 import 'package:portfolio2/Screens/homePage/homePage.dart';
 
 class AppPage extends StatefulWidget {
@@ -18,11 +20,15 @@ class _AppPageState extends State<AppPage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          children: [
+          children: const [
             HomePage(),
-            const SizedBox(height: 50),
+            SizedBox(height: 50),
             AboutMe(),
-            const SizedBox(height: 200),
+            SizedBox(height: 80),
+            LatestProjectsPage(),
+            SizedBox(height: 80),
+            DronePage(),
+            SizedBox(height: 200),
           ],
         ),
       ),

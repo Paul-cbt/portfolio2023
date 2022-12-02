@@ -1,0 +1,42 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:portfolio2/Screens/drone/droneTile.dart';
+import 'package:portfolio2/serices/theme.dart';
+import 'package:portfolio2/shared/droneVideoList.dart';
+
+class DronePage extends StatelessWidget {
+  const DronePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          "Drone",
+          style: TextStyle(
+              fontSize: 70,
+              color: CustomColors(context: context).deepBlue,
+              fontFamily: "QuickSandSemi",
+              fontWeight: FontWeight.w400),
+        ),
+        const SizedBox(height: 100),
+        Center(
+          child: CarouselSlider.builder(
+              itemCount: droneVideos.length,
+              itemBuilder: (context, index, realIndex) {
+                return DroneTile(video: droneVideos[index]);
+              },
+              options: CarouselOptions(
+                  height: MediaQuery.of(context).size.height / 2 + 40,
+                  viewportFraction: 0.6,
+                  autoPlay: true,
+                  autoPlayAnimationDuration: const Duration(seconds: 2),
+                  autoPlayInterval: const Duration(seconds: 10),
+                  enlargeCenterPage: true)),
+        )
+      ],
+    );
+  }
+}

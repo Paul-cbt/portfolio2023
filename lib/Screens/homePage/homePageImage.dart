@@ -27,7 +27,9 @@ class HomePageImage extends StatelessWidget {
           decoration: BoxDecoration(
               color: CustomColors(context: context).deepBlue,
               borderRadius: BorderRadius.only(
-                  bottomLeft: radius, bottomRight: radius, topLeft: radius),
+                  bottomLeft: radius,
+                  bottomRight: radius + const Radius.circular(10),
+                  topLeft: radius),
               boxShadow: []),
         ),
         Container(
