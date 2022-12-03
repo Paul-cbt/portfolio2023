@@ -14,38 +14,33 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        ClipShadowPath(
-          shadow: BoxShadow(
-              color: CustomColors(context: context).shadowColor,
-              blurRadius: 40,
-              spreadRadius: 15,
-              offset: Offset(10, 2)),
-          clipper: OvalBottomBorderClipper(),
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(
-              color: CustomColors(context: context).secondaryColor,
-            ),
-            child: Center(
-              child: SizedBox(
-                width: getMaxWidth(context),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [HomePageImage(), HomePageText()],
-                  ),
-                ),
+    return ClipShadowPath(
+      shadow: BoxShadow(
+          color: CustomColors(context: context).shadowColor,
+          blurRadius: 40,
+          spreadRadius: 15,
+          offset: Offset(10, 2)),
+      clipper: OvalBottomBorderClipper(),
+      child: Container(
+        height: MediaQuery.of(context).size.height - 50,
+        width: MediaQuery.of(context).size.width,
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(
+          color: CustomColors(context: context).secondaryColor,
+        ),
+        child: Center(
+          child: SizedBox(
+            width: getMaxWidth(context),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [HomePageImage(), HomePageText()],
               ),
             ),
           ),
         ),
-        CeilingLamp()
-      ],
+      ),
     );
   }
 }

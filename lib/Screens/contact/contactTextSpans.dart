@@ -28,9 +28,9 @@ List<InlineSpan> contactTextSpans(double fontSize, BuildContext context) {
       ),
     ),
     TextSpan(
-      text: " Flutter dev?\n",
+      text: "Look no more.\n",
       style: TextStyle(
-        fontSize: fontSize,
+        fontSize: fontSize + 5,
         color: CustomColors(context: context).textColor,
         fontFamily: "QuickSand",
       ),

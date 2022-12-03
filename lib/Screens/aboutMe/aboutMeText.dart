@@ -36,7 +36,7 @@ List<InlineSpan> aboutMeTextSpans(double fontSize, BuildContext context) {
       style: TextStyle(
         fontSize: fontSize,
         color: CustomColors(context: context).aboutMeAccent,
-        fontFamily: "QuickSand",
+        fontFamily: "QuickSandSemi",
       ),
     ),
     TextSpan(
@@ -52,7 +52,7 @@ List<InlineSpan> aboutMeTextSpans(double fontSize, BuildContext context) {
       style: TextStyle(
         fontSize: fontSize,
         color: CustomColors(context: context).aboutMeAccent,
-        fontFamily: "QuickSand",
+        fontFamily: "QuickSandSemi",
       ),
     ),
     TextSpan(
@@ -84,7 +84,7 @@ List<InlineSpan> aboutMeTextSpans(double fontSize, BuildContext context) {
       style: TextStyle(
         fontSize: fontSize,
         color: CustomColors(context: context).aboutMeAccent,
-        fontFamily: "QuickSand",
+        fontFamily: "QuickSandSemi",
       ),
     ),
     TextSpan(
@@ -100,7 +100,7 @@ List<InlineSpan> aboutMeTextSpans(double fontSize, BuildContext context) {
       style: TextStyle(
         fontSize: fontSize,
         color: CustomColors(context: context).aboutMeAccent,
-        fontFamily: "QuickSand",
+        fontFamily: "QuickSandSemi",
       ),
     ),
     TextSpan(

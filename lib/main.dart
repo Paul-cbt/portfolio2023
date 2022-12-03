@@ -9,6 +9,8 @@ void main() {
       create: (context) => AppStateNotifier(), child: PortfolioApp()));
 }
 
+//icon:
+//<a href="https://iconscout.com/icons/github" target="_blank">Github Icon</a> by <a href="https://iconscout.com/contributors/unicons">Unicons Font</a> on <a href="https://iconscout.com">IconScout</a>
 class PortfolioApp extends StatelessWidget {
   // This widget is the root of your application.
   @override

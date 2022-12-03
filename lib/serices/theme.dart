@@ -36,10 +36,13 @@ class CustomColors {
       : const Color(0xffA8D8EA);
 
   Color get aboutMeAccent => brightness() == Brightness.light
-      ? const Color(0xFF1d5e76)
+      ? const Color(0xffA8D8EA)
       : const Color(0xffA8D8EA);
 
   Color get projectTileColor => brightness() == Brightness.light
       ? const Color(0xFFF5F5F5)
       : Colors.grey[700]!;
+  Color get secondaryTextColor => brightness() == Brightness.light
+      ? Color.fromARGB(255, 161, 163, 166)
+      : Colors.white;
 }
