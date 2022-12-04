@@ -7,9 +7,14 @@ Project taradvent = Project(
     appPreviewName: 'taradventPreview.png',
     directoryName: 'taradvent',
     iconName: 'icon.png',
+    imageHeightFactor: 0.7,
+    rightPadding: true,
+    github: "https://github.com/Paul-cbt/taradvent",
     dates:
         ProjectDate(startDate: DateTime(2022, 11), endDate: DateTime(2022, 11)),
     subTitle: 'Advent Calendar App',
     mainColor: Color(0xffAA3A3A),
     secondaryColor: Color(0xffA4B787),
-    description: "It is generally considered a very cute idea to..");
+    alignOnLogoStart: true,
+    description:
+        "It is generally considered a very wholesome idea to create a custom advent calendar for the people you love. I was researching for different kinds of advent calendars you can buy or DIY to put custom messages in it for my girlfriend Tara. Then, I remembered: Wait, I'm actually an app developer. So on a cloudy Saturday afternoon, I was able to very quickly build this little app thanks to Flutter.");

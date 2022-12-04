@@ -23,6 +23,11 @@ class Project {
   String? iosDownloadLink;
   String? androidDownloadLink;
   String? website;
+  String? github;
+
+  double imageHeightFactor;
+  bool rightPadding;
+  bool alignOnLogoStart;
 
   Project(
       {required this.projectType,
@@ -34,11 +39,15 @@ class Project {
       required this.appPreviewName,
       required this.mainColor,
       required this.description,
+      this.imageHeightFactor = 1,
+      this.alignOnLogoStart = false,
+      this.rightPadding = false,
       required this.secondaryColor,
       this.website,
       this.showCaseImages = const [],
       this.androidDownloadLink,
-      this.iosDownloadLink});
+      this.iosDownloadLink,
+      this.github});
 }
 
 enum ProjectType { personal, professional }

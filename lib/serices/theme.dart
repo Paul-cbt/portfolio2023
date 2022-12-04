@@ -45,4 +45,8 @@ class CustomColors {
   Color get secondaryTextColor => brightness() == Brightness.light
       ? Color.fromARGB(255, 161, 163, 166)
       : Colors.white;
+  Color get personalTypeColor =>
+      brightness() == Brightness.light ? Color(0xffAA96DA) : Color(0xffAA96DA);
+  Color get personalTypeTextColor =>
+      brightness() == Brightness.light ? Color(0xff4d328e) : Color(0xff4d328e);
 }

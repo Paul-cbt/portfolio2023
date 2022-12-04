@@ -9,7 +9,7 @@ class ClientWorkLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 120,
+      width: 130,
       margin: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         boxShadow: [
@@ -43,17 +43,18 @@ class PersonalWorkLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 120,
+      width: 130,
       margin: const EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-              color: CustomColors(context: context).secondaryColor,
+              color: CustomColors(context: context).personalTypeColor,
               offset: const Offset(0, 2),
               blurRadius: 20)
         ],
         borderRadius: BorderRadius.circular(10),
-        color: CustomColors(context: context).secondaryColor,
+        color: CustomColors(context: context).personalTypeColor,
       ),
       height: 45,
       child: Center(
@@ -62,7 +63,7 @@ class PersonalWorkLogo extends StatelessWidget {
           style: TextStyle(
               fontSize: 14,
               fontFamily: 'QuickSand',
-              color: Theme.of(context).colorScheme.primary,
+              color: CustomColors(context: context).personalTypeTextColor,
               fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
