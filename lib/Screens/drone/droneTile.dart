@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:portfolio2/Screens/drone/droneVideoDialog.dart';
 
 import 'package:portfolio2/models/droneVideo.dart';
 import 'package:portfolio2/serices/theme.dart';
@@ -34,22 +35,12 @@ class _DroneTileState extends State<DroneTile> {
         hoverColor: Colors.transparent,
         borderRadius: BorderRadius.circular(10),
         onTap: () {
-          // showModalBottomSheet(
-          //     backgroundColor: Colors.transparent,
-          //     isScrollControlled: true,
-          //     constraints: BoxConstraints(
-          //         maxWidth: MediaQuery.of(context).size.width - 200,
-          //         minHeight: MediaQuery.of(context).size.height - 100,
-          //         minWidth: MediaQuery.of(context).size.width - 200,
-          //         maxHeight: MediaQuery.of(context).size.height - 100),
-          //     context: context,
-          //     builder: (context) => ArticelPage(
-          //           assetPath: widget.assetPath,
-          //           author: widget.author,
-          //           subtitle: widget.subtitle,
-          //           title: widget.title,
-          //           titleOffset: widget.titleOffset,
-          //         ));
+          Navigator.of(context).push(PageRouteBuilder(
+              opaque: false,
+              barrierDismissible: true,
+              pageBuilder: (BuildContext context, _, __) {
+                return DroneVideoDialog(video: widget.video);
+              }));
         },
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 400),

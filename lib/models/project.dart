@@ -29,12 +29,15 @@ class Project {
   bool rightPadding;
   bool alignOnLogoStart;
 
+  bool rendersAreFromBeta;
+
   Project(
       {required this.projectType,
       required this.name,
       required this.dates,
       required this.subTitle,
       required this.iconName,
+      this.rendersAreFromBeta = false,
       required this.directoryName,
       required this.appPreviewName,
       required this.mainColor,

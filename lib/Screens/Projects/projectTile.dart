@@ -19,7 +19,7 @@ class ProjectTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400,
+      constraints: BoxConstraints(minHeight: 400),
       width: getMaxWidth(context),
       margin: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
       padding: EdgeInsets.fromLTRB(30, 30, 0, 30),
@@ -35,6 +35,7 @@ class ProjectTile extends StatelessWidget {
           color: CustomColors(context: context).projectTileColor,
           borderRadius: BorderRadius.circular(30)),
       child: Stack(
+        fit: StackFit.loose,
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -106,8 +107,12 @@ class ProjectTile extends StatelessWidget {
                   textAlign: TextAlign.justify,
                 ),
               ),
-              Spacer(),
-              Row(
+              const SizedBox(height: 30),
+            ],
+          ),
+          Positioned(
+              bottom: 0,
+              child: Row(
                 children: [
                   ProjectTileLinkButton(
                       icon: Icon(
@@ -129,11 +134,31 @@ class ProjectTile extends StatelessWidget {
                         'Source Code',
                         style: TextStyle(color: project.mainColor),
                       ),
-                      url: project.github)
+                      url: project.github),
+                  ProjectTileLinkButton(
+                      icon: SvgPicture.asset(
+                        'apple.svg',
+                        color: project.mainColor,
+                        height: 22,
+                      ),
+                      text: Text(
+                        'App Store',
+                        style: TextStyle(color: project.mainColor),
+                      ),
+                      url: project.iosDownloadLink),
+                  ProjectTileLinkButton(
+                      icon: SvgPicture.asset(
+                        'android.svg',
+                        color: project.mainColor,
+                        height: 22,
+                      ),
+                      text: Text(
+                        'Google Play',
+                        style: TextStyle(color: project.mainColor),
+                      ),
+                      url: project.androidDownloadLink)
                 ],
-              )
-            ],
-          ),
+              )),
           Positioned(
             right: 220,
             child: project.projectType == ProjectType.personal
@@ -144,10 +169,37 @@ class ProjectTile extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: Padding(
               padding: EdgeInsets.only(right: project.rightPadding ? 30 : 0),
-              child: Image.asset(
-                project.appPreviewPath,
-                height: 340 * project.imageHeightFactor,
-                alignment: Alignment.centerRight,
+              child: SizedBox(
+                height: 340 + (project.rendersAreFromBeta ? 50 : 0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      project.appPreviewPath,
+                      height: 340 * project.imageHeightFactor,
+                      alignment: Alignment.centerRight,
+                    ),
+                    if (project.rendersAreFromBeta)
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.info,
+                            color: CustomColors(context: context)
+                                .secondaryTextColor,
+                          ),
+                          const SizedBox(width: 10),
+                          Text(
+                            'Image Shown are still in beta',
+                            style: TextStyle(
+                                color: CustomColors(context: context)
+                                    .secondaryTextColor,
+                                fontFamily: "QuickSand"),
+                          )
+                        ],
+                      )
+                  ],
+                ),
               ),
             ),
           )
