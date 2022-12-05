@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
             width: getMaxWidth(context),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: getMaxWidth(context) > 900
+              child: isBigSize(context)
                   ? Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [HomePageImage(), HomePageText()],

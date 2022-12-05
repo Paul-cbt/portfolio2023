@@ -9,12 +9,12 @@ class HomePageText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double fontsize = isBigSize(context) ? 50 : 30;
+    double fontsize = isBigSize(context) ? 40 : 30;
     return RichText(
         text: TextSpan(
             text: "Hello,\n",
             style: TextStyle(
-              fontSize: fontsize,
+              fontSize: fontsize * 5 / 4,
               fontFamily: "QuickSand",
               color: CustomColors(context: context).deepBlue,
             ),
@@ -22,14 +22,14 @@ class HomePageText extends StatelessWidget {
           TextSpan(
             text: "I'm ",
             style: TextStyle(
-              fontSize: fontsize,
+              fontSize: fontsize * 5 / 4,
               fontFamily: "QuickSand",
             ),
           ),
           TextSpan(
             text: "Paul",
             style: TextStyle(
-              fontSize: fontsize,
+              fontSize: fontsize * 5 / 4,
               color: CustomColors(context: context).homePageTextColor,
               fontFamily: "QuickSand",
             ),

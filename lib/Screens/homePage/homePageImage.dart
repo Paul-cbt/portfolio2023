@@ -16,7 +16,9 @@ class HomePageImage extends StatelessWidget {
 
     double imageSize = isBigSize(context)
         ? getMaxWidth(context) / 2.2
-        : getMaxWidth(context) - 60;
+        : getMaxWidth(context) - 60 > MediaQuery.of(context).size.height / 2
+            ? MediaQuery.of(context).size.height / 2
+            : getMaxWidth(context) - 60;
 
     return Stack(
       children: [
