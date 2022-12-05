@@ -40,7 +40,16 @@ List<InlineSpan> aboutMeTextSpans(double fontSize, BuildContext context) {
       ),
     ),
     TextSpan(
-      text: " I have ",
+      text:
+          " I started being exposed to programming at 8 and I loved it ever since!\n",
+      style: TextStyle(
+        fontSize: fontSize,
+        color: CustomColors(context: context).textColor,
+        fontFamily: "QuickSand",
+      ),
+    ),
+    TextSpan(
+      text: "I have ",
       style: TextStyle(
         fontSize: fontSize,
         color: CustomColors(context: context).textColor,
@@ -56,7 +65,7 @@ List<InlineSpan> aboutMeTextSpans(double fontSize, BuildContext context) {
       ),
     ),
     TextSpan(
-      text: " of experience working with Flutter.\n",
+      text: " of experience working with Flutter. ",
       style: TextStyle(
         fontSize: fontSize,
         color: CustomColors(context: context).textColor,
