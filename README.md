@@ -1,16 +1,5 @@
-# portfolio2
+# My Portfolio
 
-A new Flutter project.
+Hi! I'm Paul, a young developer from Germany. This is my personal portfolio, the link is [paulcaubet.web.app](https://paulcaubet.web.app/#/)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
