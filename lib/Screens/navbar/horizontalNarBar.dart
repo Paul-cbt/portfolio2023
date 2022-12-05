@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:portfolio2/Screens/Projects/fullProjectList.dart';
 import 'package:portfolio2/serices/theme.dart';
 import 'package:portfolio2/shared/Projects/projectList.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class HorizontalNavbar extends StatefulWidget {
   final ScrollController scrollController;
@@ -59,19 +62,11 @@ class _HorizontalNavbarState extends State<HorizontalNavbar> {
         children: [
           InkWell(
             borderRadius: BorderRadius.circular(5),
-            onTap: () {},
-            child: Text(
-              "Drone",
-              style: TextStyle(
-                  fontFamily: 'QuickSandSemi',
-                  fontSize: 16,
-                  color: CustomColors(context: context).deepBlue),
-            ),
-          ),
-          const SizedBox(width: 20),
-          InkWell(
-            borderRadius: BorderRadius.circular(5),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(CupertinoPageRoute(
+                builder: (context) => const FullProjectList(),
+              ));
+            },
             child: Text(
               "Project Gallery",
               style: TextStyle(
@@ -83,7 +78,9 @@ class _HorizontalNavbarState extends State<HorizontalNavbar> {
           const SizedBox(width: 20),
           InkWell(
             borderRadius: BorderRadius.circular(5),
-            onTap: () {},
+            onTap: () {
+              launchUrlString('https://github.com/Paul-cbt');
+            },
             child: Text(
               "GitHub",
               style: TextStyle(
@@ -95,7 +92,12 @@ class _HorizontalNavbarState extends State<HorizontalNavbar> {
           const SizedBox(width: 20),
           InkWell(
             borderRadius: BorderRadius.circular(5),
-            onTap: () {},
+            onTap: () {
+              widget.scrollController.animateTo(
+                  widget.scrollController.position.maxScrollExtent,
+                  duration: const Duration(milliseconds: 400),
+                  curve: Curves.easeInOut);
+            },
             child: Text(
               "Contact",
               style: TextStyle(

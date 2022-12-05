@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:portfolio2/Screens/drone/droneTile.dart';
 import 'package:portfolio2/serices/theme.dart';
 import 'package:portfolio2/shared/droneVideoList.dart';
+import 'package:portfolio2/shared/maxWidth.dart';
 
 class DronePage extends StatelessWidget {
   const DronePage({super.key});
@@ -29,8 +30,8 @@ class DronePage extends StatelessWidget {
                 return DroneTile(video: droneVideos[index]);
               },
               options: CarouselOptions(
-                  height: MediaQuery.of(context).size.height / 2 + 40,
-                  viewportFraction: 0.6,
+                  aspectRatio: isBigSize(context) ? 19 / 7 : 1,
+                  viewportFraction: isBigSize(context) ? 0.6 : 0.95,
                   autoPlay: true,
                   autoPlayAnimationDuration: const Duration(seconds: 2),
                   autoPlayInterval: const Duration(seconds: 10),

@@ -17,8 +17,8 @@ class Project {
   String get iconPath => "$directoryName/$iconName";
   String get appPreviewPath => "$directoryName/$appPreviewName";
 
-  Color mainColor;
-  Color secondaryColor;
+  Color lightThemeColor;
+  Color darkThemeColor;
 
   String? iosDownloadLink;
   String? androidDownloadLink;
@@ -28,8 +28,17 @@ class Project {
   double imageHeightFactor;
   bool rightPadding;
   bool alignOnLogoStart;
+  bool isWideImage;
+  bool isLogoCircle;
 
   bool rendersAreFromBeta;
+
+  Color textColor(BuildContext context) {
+    if (Theme.of(context).brightness == Brightness.light) {
+      return lightThemeColor;
+    }
+    return darkThemeColor;
+  }
 
   Project(
       {required this.projectType,
@@ -38,14 +47,16 @@ class Project {
       required this.subTitle,
       required this.iconName,
       this.rendersAreFromBeta = false,
+      this.isWideImage = false,
+      this.isLogoCircle = false,
       required this.directoryName,
       required this.appPreviewName,
-      required this.mainColor,
+      required this.lightThemeColor,
       required this.description,
       this.imageHeightFactor = 1,
       this.alignOnLogoStart = false,
       this.rightPadding = false,
-      required this.secondaryColor,
+      required this.darkThemeColor,
       this.website,
       this.showCaseImages = const [],
       this.androidDownloadLink,

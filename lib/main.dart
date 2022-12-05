@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio2/Screens/Projects/fullProjectList.dart';
 import 'package:portfolio2/appPage.dart';
 import 'package:portfolio2/serices/theme.dart';
 import 'package:portfolio2/serices/themeAppStateModifier.dart';
@@ -26,7 +27,9 @@ class PortfolioApp extends StatelessWidget {
           themeMode:
               themeAppState.isDarkMode ? ThemeMode.dark : ThemeMode.light,
           debugShowCheckedModeBanner: false,
-          home: AppPage(),
+          routes: {
+            '/': (context) => AppPage(),
+          },
         );
       },
     );

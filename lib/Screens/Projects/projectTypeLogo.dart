@@ -14,12 +14,12 @@ class ClientWorkLogo extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-              color: CustomColors(context: context).secondaryColor,
+              color: CustomColors(context: context).professionalTypeShadowColor,
               offset: const Offset(0, 2),
               blurRadius: 20)
         ],
         borderRadius: BorderRadius.circular(10),
-        color: CustomColors(context: context).secondaryColor,
+        color: CustomColors(context: context).professionalTypeColor,
       ),
       height: 45,
       child: Center(
@@ -49,7 +49,7 @@ class PersonalWorkLogo extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-              color: CustomColors(context: context).personalTypeColor,
+              color: CustomColors(context: context).personalTypeShadowColor,
               offset: const Offset(0, 2),
               blurRadius: 20)
         ],

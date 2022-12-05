@@ -22,6 +22,8 @@ class HomePage extends StatelessWidget {
           offset: Offset(10, 2)),
       clipper: OvalBottomBorderClipper(),
       child: Container(
+        padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width > 1030 ? 0 : 30),
         height: MediaQuery.of(context).size.height - 50,
         width: MediaQuery.of(context).size.width,
         clipBehavior: Clip.antiAlias,
@@ -33,10 +35,20 @@ class HomePage extends StatelessWidget {
             width: getMaxWidth(context),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [HomePageImage(), HomePageText()],
-              ),
+              child: getMaxWidth(context) > 900
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [HomePageImage(), HomePageText()],
+                    )
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        HomePageImage(),
+                        SizedBox(
+                            width: MediaQuery.of(context).size.height / 3,
+                            child: HomePageText())
+                      ],
+                    ),
             ),
           ),
         ),

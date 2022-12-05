@@ -12,6 +12,8 @@ class AboutMe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width > 1030 ? 0 : 30),
       child: Column(
         children: [
           Text(
@@ -22,19 +24,29 @@ class AboutMe extends StatelessWidget {
                 fontFamily: "QuickSandSemi",
                 fontWeight: FontWeight.w400),
           ),
-          const SizedBox(height: 100),
+          SizedBox(height: getMaxWidth(context) > 900 ? 100 : 50),
           SizedBox(
               width: getMaxWidth(context),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: AboutMeText(),
-                  ),
-                  const SizedBox(width: 50),
-                  AboutMeImage()
-                ],
-              ))
+              child: getMaxWidth(context) > 900
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Expanded(
+                          child: AboutMeText(),
+                        ),
+                        SizedBox(width: 50),
+                        AboutMeImage()
+                      ],
+                    )
+                  : Column(
+                      children: const [
+                        AboutMeImage(),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(30, 20, 30, 0),
+                          child: AboutMeText(),
+                        )
+                      ],
+                    ))
         ],
       ),
     );

@@ -16,11 +16,16 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height,
+      height: isBigSize(context) ? MediaQuery.of(context).size.height : null,
       width: MediaQuery.of(context).size.width,
+      padding: getMaxWidth(context) < 1000
+          ? EdgeInsets.symmetric(horizontal: 30)
+          : null,
       child: Column(
         children: [
-          SizedBox(height: MediaQuery.of(context).size.height / 10),
+          SizedBox(
+              height: MediaQuery.of(context).size.height /
+                  (isBigSize(context) ? 10 : 20)),
           Text(
             "Contact",
             style: TextStyle(
@@ -29,105 +34,127 @@ class ContactPage extends StatelessWidget {
                 fontFamily: "QuickSandSemi",
                 fontWeight: FontWeight.w400),
           ),
-          SizedBox(height: MediaQuery.of(context).size.height / 10),
           SizedBox(
-            height: 400,
+              height: MediaQuery.of(context).size.height /
+                  (isBigSize(context) ? 10 : 20)),
+          SizedBox(
+            height: isBigSize(context) ? 400 : null,
             width: getMaxWidth(context),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: getMaxWidth(context) / 2.5,
-                  child: SvgPicture.asset(
-                    'young.svg',
-                    height: MediaQuery.of(context).size.height / 2.1,
-                    width: getMaxWidth(context) / 3,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-                const SizedBox(width: 50),
-                Expanded(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.end,
+            child: isBigSize(context)
+                ? Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Spacer(),
-                      RichText(
-                          textAlign: TextAlign.end,
-                          text: TextSpan(
-                              children: contactTextSpans(fontSize, context))),
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(5),
-                            child: TextButton.icon(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.download,
-                                  color:
-                                      CustomColors(context: context).deepBlue,
-                                ),
-                                label: Text(
-                                  'Resume',
-                                  style: TextStyle(
-                                      color: CustomColors(context: context)
-                                          .deepBlue,
-                                      fontFamily: "QuickSand",
-                                      fontSize: 16),
-                                )),
-                          ),
-                          const SizedBox(width: 10),
-                          Container(
-                            decoration: BoxDecoration(boxShadow: [
-                              BoxShadow(
-                                  color: CustomColors(context: context)
-                                      .shadowColor
-                                      .withOpacity(0.2),
-                                  blurRadius: 10,
-                                  spreadRadius: 5,
-                                  offset: Offset(5, 5))
-                            ]),
-                            child: AnimatedButton(
-                              borderRadius: 5,
-                              onPress: () {
-                                launchUrlString('mailto:dev@paulcaubet.com');
-                              },
-                              width: 200,
-                              height: 50,
-                              text: 'EMAIL',
-                              animatedOn: AnimatedOn.onHover,
-                              // borderColor:
-                              //     CustomColors(context: context).deepBlue,
-                              backgroundColor:
-                                  CustomColors(context: context).deepBlue,
-                              selectedBackgroundColor:
-                                  CustomColors(context: context)
-                                      .homePageTextColor,
-                              selectedTextColor:
-                                  CustomColors(context: context).deepBlue,
-                              transitionType: TransitionType.LEFT_TOP_ROUNDER,
-                              textStyle: TextStyle(
-                                  fontSize: 28,
-                                  letterSpacing: 5,
-                                  color: CustomColors(context: context)
-                                      .homePageTextColor,
-                                  fontWeight: FontWeight.w300),
-                            ),
-                          ),
-                          const SizedBox(height: 150),
-                        ],
+                      SizedBox(
+                        width: getMaxWidth(context) / 2.5,
+                        child: SvgPicture.asset(
+                          'young.svg',
+                          height: MediaQuery.of(context).size.height / 2.1,
+                          width: getMaxWidth(context) / 3,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                      const SizedBox(width: 50),
+                      Expanded(
+                        child: ContactPageTextAndButton(),
                       )
                     ],
+                  )
+                : Column(
+                    children: [
+                      SizedBox(
+                        width: getMaxWidth(context) / 2.5,
+                        child: SvgPicture.asset(
+                          'young.svg',
+                          height: MediaQuery.of(context).size.height / 3,
+                          width: getMaxWidth(context) / 3,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                      const SizedBox(height: 50),
+                      ContactPageTextAndButton()
+                    ],
                   ),
-                )
-              ],
-            ),
           ),
-          Spacer(),
+          if (isBigSize(context)) Spacer(),
           Footer()
         ],
       ),
+    );
+  }
+}
+
+class ContactPageTextAndButton extends StatelessWidget {
+  const ContactPageTextAndButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        if (isBigSize(context)) Spacer(),
+        RichText(
+            textAlign: TextAlign.end,
+            text: TextSpan(children: contactTextSpans(fontSize, context))),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(5),
+              child: TextButton.icon(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.download,
+                    color: CustomColors(context: context).deepBlue,
+                  ),
+                  label: Text(
+                    'Resume',
+                    style: TextStyle(
+                        color: CustomColors(context: context).deepBlue,
+                        fontFamily: "QuickSand",
+                        fontSize: 16),
+                  )),
+            ),
+            const SizedBox(width: 10),
+            Container(
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                    color: CustomColors(context: context)
+                        .shadowColor
+                        .withOpacity(0.2),
+                    blurRadius: 10,
+                    spreadRadius: 5,
+                    offset: Offset(5, 5))
+              ]),
+              child: AnimatedButton(
+                borderRadius: 5,
+                onPress: () {
+                  launchUrlString('mailto:dev@paulcaubet.com');
+                },
+                width: 200,
+                height: 50,
+                text: 'EMAIL',
+                animatedOn: AnimatedOn.onHover,
+                // borderColor:
+                //     CustomColors(context: context).deepBlue,
+                backgroundColor: CustomColors(context: context).deepBlue,
+                selectedBackgroundColor:
+                    CustomColors(context: context).homePageTextColor,
+                selectedTextColor: CustomColors(context: context).deepBlue,
+                transitionType: TransitionType.LEFT_TOP_ROUNDER,
+                textStyle: TextStyle(
+                    fontSize: 28,
+                    letterSpacing: 5,
+                    color: CustomColors(context: context).homePageTextColor,
+                    fontWeight: FontWeight.w300),
+              ),
+            ),
+            const SizedBox(height: 150),
+          ],
+        )
+      ],
     );
   }
 }

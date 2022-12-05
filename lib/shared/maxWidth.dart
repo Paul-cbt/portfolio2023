@@ -6,3 +6,7 @@ double getMaxWidth(BuildContext context) {
       ? 1000
       : MediaQuery.of(context).size.width;
 }
+
+bool isBigSize(BuildContext context) {
+  return getMaxWidth(context) > 900;
+}
