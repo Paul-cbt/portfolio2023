@@ -13,7 +13,8 @@ void main() {
 //icon:
 //<a href="https://iconscout.com/icons/github" target="_blank">Github Icon</a> by <a href="https://iconscout.com/contributors/unicons">Unicons Font</a> on <a href="https://iconscout.com">IconScout</a>
 class PortfolioApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const PortfolioApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Consumer<AppStateNotifier>(
@@ -28,7 +29,7 @@ class PortfolioApp extends StatelessWidget {
               themeAppState.isDarkMode ? ThemeMode.dark : ThemeMode.light,
           debugShowCheckedModeBanner: false,
           routes: {
-            '/': (context) => AppPage(),
+            '/': (context) => const AppPage(),
           },
         );
       },

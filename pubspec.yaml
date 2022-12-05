@@ -41,6 +41,7 @@ dependencies:
   hovering: ^1.0.4
   provider: ^6.0.4
   shimmer: ^2.0.0
+  universal_html: ^2.0.8
   url_launcher: ^6.1.7
   youtube_player_iframe: ^3.1.0
 

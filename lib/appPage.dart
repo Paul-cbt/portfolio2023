@@ -9,6 +9,7 @@ import 'package:portfolio2/Screens/drone/dronePage.dart';
 import 'package:portfolio2/Screens/homePage/homePage.dart';
 import 'package:portfolio2/Screens/navbar/horizontalNarBar.dart';
 import 'package:portfolio2/widget/ceilingLamp.dart';
+import 'package:universal_html/html.dart' as uni;
 
 class AppPage extends StatefulWidget {
   const AppPage({super.key});
@@ -18,6 +19,17 @@ class AppPage extends StatefulWidget {
 }
 
 class _AppPageState extends State<AppPage> {
+  @override
+  void initState() {
+    var loader = uni.document.getElementsByClassName('container');
+
+    if (loader.isNotEmpty) {
+      loader.first.remove();
+      //remove the loading in the html file
+    }
+    super.initState();
+  }
+
   final ScrollController _appPageScrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
