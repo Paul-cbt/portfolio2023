@@ -104,7 +104,9 @@ class ContactPageTextAndButton extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(5),
               child: TextButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    launchUrlString("assets/cv.pdf");
+                  },
                   icon: Icon(
                     Icons.download,
                     color: CustomColors(context: context).deepBlue,
