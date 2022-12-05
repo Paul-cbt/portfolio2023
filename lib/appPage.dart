@@ -19,6 +19,7 @@ class AppPage extends StatefulWidget {
 }
 
 class _AppPageState extends State<AppPage> {
+  bool isInit = false;
   @override
   void initState() {
     var loader = uni.document.getElementsByClassName('container');
@@ -33,6 +34,11 @@ class _AppPageState extends State<AppPage> {
   final ScrollController _appPageScrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
+    if (!isInit) {
+      precacheImage(const NetworkImage("assets/meHome.jpg"), context);
+      precacheImage(const NetworkImage("assets/aboutMe.jpg"), context);
+      isInit = true;
+    }
     return Scaffold(
       body: Stack(
         children: [
