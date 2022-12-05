@@ -20,6 +20,7 @@ class ProjectTileLinkRow extends StatelessWidget {
               Icons.language,
               color: project.textColor(context),
             ),
+            color: project.textColor(context),
             text: Text(
               'Link To Web app',
               style: TextStyle(color: project.textColor(context)),
@@ -31,6 +32,7 @@ class ProjectTileLinkRow extends StatelessWidget {
               color: project.textColor(context),
               height: 20,
             ),
+            color: project.textColor(context),
             text: Text(
               'Source Code',
               style: TextStyle(color: project.textColor(context)),
@@ -42,6 +44,7 @@ class ProjectTileLinkRow extends StatelessWidget {
               color: project.textColor(context),
               height: 22,
             ),
+            color: project.textColor(context),
             text: Text(
               'App Store',
               style: TextStyle(color: project.textColor(context)),
@@ -53,6 +56,7 @@ class ProjectTileLinkRow extends StatelessWidget {
               color: project.textColor(context),
               height: 22,
             ),
+            color: project.textColor(context),
             text: Text(
               'Google Play',
               style: TextStyle(color: project.textColor(context)),

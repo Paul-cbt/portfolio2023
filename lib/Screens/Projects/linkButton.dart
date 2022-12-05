@@ -6,23 +6,34 @@ import 'package:url_launcher/url_launcher_string.dart';
 class ProjectTileLinkButton extends StatelessWidget {
   final String? url;
   final Widget icon;
+  final Color color;
   final Widget text;
   const ProjectTileLinkButton(
-      {super.key, required this.icon, required this.text, required this.url});
+      {super.key,
+      required this.icon,
+      required this.text,
+      required this.url,
+      required this.color});
 
   @override
   Widget build(BuildContext context) {
     if (url == null) {
       return Container();
     }
-    return ClipRRect(
+    return InkWell(
+      splashColor: color,
       borderRadius: BorderRadius.circular(10),
-      child: TextButton.icon(
-          onPressed: () {
-            launchUrlString(url!);
-          },
-          icon: icon,
-          label: text),
+      onTap: () {
+        print('press');
+        launchUrlString(url!);
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [icon, const SizedBox(width: 10), text],
+        ),
+      ),
     );
   }
 }
