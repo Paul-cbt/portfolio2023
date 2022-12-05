@@ -7,6 +7,12 @@ Project kjmethod = Project(
     appPreviewName: 'kjmethodAppPreview.png',
     directoryName: 'kjmethod',
     iconName: 'icon.png',
+    clientName: 'Kalimah',
+    testimonial: [
+      'Perfect. Love it',
+      'I looked at the app and first of all, great job.  I just looks really good.',
+      'I love how this app is looking.'
+    ],
     dates:
         ProjectDate(startDate: DateTime(2022, 3), endDate: DateTime(2022, 5)),
     subTitle: 'Real Estate Exam Prep',

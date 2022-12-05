@@ -7,6 +7,12 @@ Project teacheratn = Project(
     appPreviewName: 'teacheratnAppPreview.png',
     directoryName: 'teacheratn',
     iconName: 'icon.png',
+    clientName: 'Etienne',
+    testimonial: [
+      'He is very good and talented! Merci paul!',
+      'Amazing seller, I had to book him again for his quality work',
+      'I highly recommend his skills and willingness to help you create your project',
+    ],
     imageHeightFactor: 0.5,
     isWideImage: true,
     isLogoCircle: true,

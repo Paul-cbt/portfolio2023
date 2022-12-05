@@ -9,6 +9,7 @@ import 'package:portfolio2/Screens/Projects/projectTileDateDisplay.dart';
 import 'package:portfolio2/Screens/Projects/projectTileLinkRow.dart';
 import 'package:portfolio2/Screens/Projects/projectTileTitleRow.dart';
 import 'package:portfolio2/Screens/Projects/projectTypeLogo.dart';
+import 'package:portfolio2/Screens/Projects/quoteBuilder.dart';
 import 'package:portfolio2/models/project.dart';
 import 'package:portfolio2/serices/theme.dart';
 import 'package:portfolio2/shared/maxWidth.dart';
@@ -68,6 +69,33 @@ class ProjectTile extends StatelessWidget {
                         textAlign: TextAlign.justify,
                       ),
                     ),
+                    const SizedBox(height: 10),
+                    if (project.projectType == ProjectType.professional)
+                      SizedBox(
+                        width: getMaxWidth(context) -
+                            220 -
+                            50 -
+                            (project.alignOnLogoStart ? 130 : 0) -
+                            (project.isWideImage ? 280 : 0),
+                        height: 40,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "${project.clientName} said: ",
+                              style: TextStyle(
+                                  color: project.textColor(context),
+                                  fontFamily: 'QuickSand',
+                                  fontSize: 15),
+                            ),
+                            Expanded(
+                              child: QuoteBuilder(
+                                testimonials: project.testimonial!,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                     const SizedBox(height: 30),
                   ],
                 ),
@@ -140,6 +168,26 @@ class ProjectTile extends StatelessWidget {
                 if (project.rendersAreFromBeta)
                   Center(child: ProjectTileBetaWarning()),
                 const SizedBox(height: 10),
+                if (project.projectType == ProjectType.professional)
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "${project.clientName} said: ",
+                        style: TextStyle(
+                            color: project.textColor(context),
+                            fontFamily: 'QuickSand',
+                            fontSize: 15),
+                      ),
+                      SizedBox(
+                        height: getMaxWidth(context) > 350 ? 50 : 70,
+                        width: getMaxWidth(context) - 60,
+                        child: QuoteBuilder(
+                          testimonials: project.testimonial!,
+                        ),
+                      )
+                    ],
+                  ),
                 ProjectTileLinkRow(project: project)
               ],
             ),

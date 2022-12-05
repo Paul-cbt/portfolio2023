@@ -6,6 +6,9 @@ class Project {
   ProjectDate dates;
   String subTitle;
 
+  String? clientName;
+  List<String>? testimonial;
+
   String description;
 
   String directoryName;
@@ -46,6 +49,8 @@ class Project {
       required this.dates,
       required this.subTitle,
       required this.iconName,
+      this.clientName,
+      this.testimonial,
       this.rendersAreFromBeta = false,
       this.isWideImage = false,
       this.isLogoCircle = false,

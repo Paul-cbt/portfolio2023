@@ -24,6 +24,7 @@ class FullProjectList extends StatelessWidget {
               backgroundColor: Colors.transparent,
               floating: true,
               elevation: 0,
+              centerTitle: true,
               leading: IconButton(
                   onPressed: () {
                     Navigator.of(context).pop();
