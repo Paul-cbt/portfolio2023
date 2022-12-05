@@ -14,24 +14,38 @@ class HomePageImage extends StatelessWidget {
         ? const Radius.circular(100)
         : const Radius.circular(70);
 
-    double imageSize = getMaxWidth(context) > 700
+    double imageSize = isBigSize(context)
         ? getMaxWidth(context) / 2.2
-        : MediaQuery.of(context).size.height / 3;
+        : getMaxWidth(context) - 60;
 
     return Stack(
       children: [
-        Container(
-          height: imageSize,
-          width: imageSize,
-          margin: EdgeInsets.only(left: 10, top: 10),
-          decoration: BoxDecoration(
-              color: CustomColors(context: context).deepBlue,
-              borderRadius: BorderRadius.only(
-                  bottomLeft: radius - const Radius.circular(10),
-                  bottomRight: radius + const Radius.circular(10),
-                  topLeft: radius),
-              boxShadow: []),
-        ),
+        if (isBigSize(context))
+          Container(
+            height: imageSize,
+            width: imageSize,
+            margin: EdgeInsets.only(left: 10, top: 10),
+            decoration: BoxDecoration(
+                color: CustomColors(context: context).deepBlue,
+                borderRadius: BorderRadius.only(
+                    bottomLeft: radius - const Radius.circular(10),
+                    bottomRight: radius + const Radius.circular(10),
+                    topLeft: radius),
+                boxShadow: []),
+          ),
+        if (!isBigSize(context))
+          Container(
+            height: imageSize,
+            width: imageSize,
+            margin: EdgeInsets.only(left: 5, top: 5),
+            decoration: BoxDecoration(
+                color: CustomColors(context: context).deepBlue,
+                borderRadius: BorderRadius.only(
+                    bottomLeft: radius - const Radius.circular(5),
+                    bottomRight: radius + const Radius.circular(5),
+                    topLeft: radius),
+                boxShadow: []),
+          ),
         Container(
             height: imageSize,
             width: imageSize,

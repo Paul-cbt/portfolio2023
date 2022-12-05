@@ -14,9 +14,9 @@ class AboutMeImage extends StatelessWidget {
         ? const Radius.circular(100)
         : const Radius.circular(70);
 
-    double imageSize = getMaxWidth(context) > 700
+    double imageSize = isBigSize(context)
         ? getMaxWidth(context) / 2.2
-        : MediaQuery.of(context).size.height / 3;
+        : getMaxWidth(context) - 60;
 
     return Container(
         height: imageSize,

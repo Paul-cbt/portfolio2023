@@ -135,7 +135,7 @@ class ContactPageTextAndButton extends StatelessWidget {
                 onPress: () {
                   launchUrlString('mailto:dev@paulcaubet.com');
                 },
-                width: 200,
+                width: isBigSize(context) ? 200 : 140,
                 height: 50,
                 text: 'EMAIL',
                 animatedOn: AnimatedOn.onHover,
@@ -147,7 +147,7 @@ class ContactPageTextAndButton extends StatelessWidget {
                 selectedTextColor: CustomColors(context: context).deepBlue,
                 transitionType: TransitionType.LEFT_TOP_ROUNDER,
                 textStyle: TextStyle(
-                    fontSize: 28,
+                    fontSize: isBigSize(context) ? 28 : 22,
                     letterSpacing: 5,
                     color: CustomColors(context: context).homePageTextColor,
                     fontWeight: FontWeight.w300),

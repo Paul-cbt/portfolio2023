@@ -13,13 +13,16 @@ class AboutMe extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width > 1030 ? 0 : 30),
+          horizontal:
+              MediaQuery.of(context).size.width > 1030 || !isBigSize(context)
+                  ? 0
+                  : 30),
       child: Column(
         children: [
           Text(
             "About Me",
             style: TextStyle(
-                fontSize: 70,
+                fontSize: isBigSize(context) ? 70 : 30,
                 color: CustomColors(context: context).deepBlue,
                 fontFamily: "QuickSandSemi",
                 fontWeight: FontWeight.w400),
@@ -42,7 +45,7 @@ class AboutMe extends StatelessWidget {
                       children: const [
                         AboutMeImage(),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(30, 20, 30, 0),
+                          padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
                           child: AboutMeText(),
                         )
                       ],

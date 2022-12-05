@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:portfolio2/serices/theme.dart';
+import 'package:portfolio2/shared/maxWidth.dart';
 
 class HomePageText extends StatelessWidget {
   const HomePageText({super.key});
 
   @override
   Widget build(BuildContext context) {
+    double fontsize = isBigSize(context) ? 50 : 30;
     return RichText(
         text: TextSpan(
             text: "Hello,\n",
             style: TextStyle(
-              fontSize: 50,
+              fontSize: fontsize,
               fontFamily: "QuickSand",
               color: CustomColors(context: context).deepBlue,
             ),
@@ -20,14 +22,14 @@ class HomePageText extends StatelessWidget {
           TextSpan(
             text: "I'm ",
             style: TextStyle(
-              fontSize: 50,
+              fontSize: fontsize,
               fontFamily: "QuickSand",
             ),
           ),
           TextSpan(
             text: "Paul",
             style: TextStyle(
-              fontSize: 50,
+              fontSize: fontsize,
               color: CustomColors(context: context).homePageTextColor,
               fontFamily: "QuickSand",
             ),
@@ -35,21 +37,21 @@ class HomePageText extends StatelessWidget {
           TextSpan(
             text: ",\n",
             style: TextStyle(
-              fontSize: 50,
+              fontSize: fontsize,
               fontFamily: "QuickSand",
             ),
           ),
           TextSpan(
             text: "a ",
             style: TextStyle(
-              fontSize: 40,
+              fontSize: fontsize,
               fontFamily: "QuickSand",
             ),
           ),
           TextSpan(
             text: "mobile",
             style: TextStyle(
-              fontSize: 40,
+              fontSize: fontsize,
               color: CustomColors(context: context).homePageTextColor,
               fontFamily: "QuickSand",
             ),
@@ -57,14 +59,14 @@ class HomePageText extends StatelessWidget {
           TextSpan(
             text: " and ",
             style: TextStyle(
-              fontSize: 40,
+              fontSize: fontsize,
               fontFamily: "QuickSand",
             ),
           ),
           TextSpan(
             text: "Web",
             style: TextStyle(
-              fontSize: 40,
+              fontSize: fontsize,
               color: CustomColors(context: context).homePageTextColor,
               fontFamily: "QuickSand",
             ),
@@ -72,7 +74,7 @@ class HomePageText extends StatelessWidget {
           TextSpan(
             text: " dev",
             style: TextStyle(
-              fontSize: 40,
+              fontSize: fontsize,
               fontFamily: "QuickSand",
             ),
           )

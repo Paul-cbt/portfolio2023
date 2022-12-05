@@ -18,7 +18,7 @@ class LatestProjectsPage extends StatelessWidget {
         Text(
           "Featured Projects",
           style: TextStyle(
-              fontSize: isBigSize(context) ? 70 : 40,
+              fontSize: isBigSize(context) ? 70 : 30,
               color: CustomColors(context: context).deepBlue,
               fontFamily: "QuickSandSemi",
               fontWeight: FontWeight.w400),
