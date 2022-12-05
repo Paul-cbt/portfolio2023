@@ -29,7 +29,7 @@ class CustomColors {
       : Colors.black;
   Color get homePageTextColor => brightness() == Brightness.light
       ? const Color(0xFFF7F7F7)
-      : const Color(0xffFFF7F7F7);
+      : const Color(0xffFF7F7F7);
 
   Color get deepBlue => brightness() == Brightness.light
       ? const Color(0xFF1d5e76)
@@ -60,11 +60,12 @@ class CustomColors {
   Color get professionalTypeShadowColor => brightness() == Brightness.light
       ? const Color(0xFFA8D8EA)
       : const Color(0xFFA8D8EA).withOpacity(0.5);
-  Color get personalTypeColor =>
-      brightness() == Brightness.light ? Color(0xffAA96DA) : Color(0xffAA96DA);
+  Color get personalTypeColor => brightness() == Brightness.light
+      ? const Color(0xFF1d5e76)
+      : Color(0xffAA96DA);
   Color get personalTypeTextColor =>
-      brightness() == Brightness.light ? Color(0xff4d328e) : Color(0xff4d328e);
+      brightness() == Brightness.light ? Color(0xff89b4e2) : Color(0xff4d328e);
   Color get personalTypeShadowColor => brightness() == Brightness.light
-      ? Color(0xffAA96DA)
+      ? const Color(0xFF1d5e76)
       : Color(0xffAA96DA).withOpacity(0.5);
 }

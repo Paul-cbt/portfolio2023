@@ -73,12 +73,11 @@ class ProjectTile extends StatelessWidget {
                 ),
                 Positioned(
                     bottom: 0, child: ProjectTileLinkRow(project: project)),
-                Positioned(
-                  right: 220,
-                  child: project.projectType == ProjectType.personal
-                      ? PersonalWorkLogo()
-                      : ClientWorkLogo(),
-                ),
+                if (project.projectType == ProjectType.professional)
+                  Positioned(
+                    right: 220,
+                    child: ClientWorkLogo(),
+                  ),
                 Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
