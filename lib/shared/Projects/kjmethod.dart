@@ -4,6 +4,7 @@ import 'package:portfolio2/models/project.dart';
 Project kjmethod = Project(
     projectType: ProjectType.professional,
     name: 'KJ METHOD',
+    aspectRatio: 3962 / 1923,
     appPreviewName: 'kjmethodAppPreview.png',
     directoryName: 'kjmethod',
     iconName: 'icon.png',

@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_animated_button/flutter_animated_button.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:portfolio2/Screens/contact/contactImage.dart';
 import 'package:portfolio2/Screens/contact/contactTextSpans.dart';
 import 'package:portfolio2/Screens/contact/footer.dart';
 import 'package:portfolio2/serices/theme.dart';
@@ -38,21 +39,13 @@ class ContactPage extends StatelessWidget {
               height: MediaQuery.of(context).size.height /
                   (isBigSize(context) ? 10 : 20)),
           SizedBox(
-            height: isBigSize(context) ? 400 : null,
+            height: isBigSize(context) ? getMaxWidth(context) / 2.5 : null,
             width: getMaxWidth(context),
             child: isBigSize(context)
                 ? Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(
-                        width: getMaxWidth(context) / 2.5,
-                        child: SvgPicture.asset(
-                          'young.svg',
-                          height: MediaQuery.of(context).size.height / 2.1,
-                          width: getMaxWidth(context) / 3,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
+                      ContactImage(),
                       const SizedBox(width: 50),
                       Expanded(
                         child: ContactPageTextAndButton(),
@@ -61,22 +54,14 @@ class ContactPage extends StatelessWidget {
                   )
                 : Column(
                     children: [
-                      SizedBox(
-                        width: getMaxWidth(context) / 2.5,
-                        child: SvgPicture.asset(
-                          'young.svg',
-                          height: MediaQuery.of(context).size.height / 3,
-                          width: getMaxWidth(context) / 3,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
+                      ContactImage(),
                       const SizedBox(height: 50),
                       ContactPageTextAndButton()
                     ],
                   ),
           ),
           if (isBigSize(context)) Spacer(),
-          Footer()
+          SafeArea(child: Footer())
         ],
       ),
     );

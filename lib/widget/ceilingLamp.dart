@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -44,15 +45,15 @@ class _CeilingLampState extends State<CeilingLamp> {
           child: AnimatedSwitcher(
             duration: const Duration(milliseconds: 400),
             child: Theme.of(context).brightness == Brightness.light
-                ? Image.asset(
-                    'ceiling-lamp.png',
+                ? CachedNetworkImage(
+                    imageUrl: "assets/ceiling-lamp.png",
                     width: getMaxWidth(context) > 500 ? 150 : 70,
                     key: const Key('0'),
                     alignment: Alignment.bottomCenter,
                     fit: BoxFit.fitWidth,
                   )
-                : Image.asset(
-                    'ceiling-lamp-off.png',
+                : CachedNetworkImage(
+                    imageUrl: "assets/ceiling-lamp-off.png",
                     width: getMaxWidth(context) > 500 ? 150 : 70,
                     key: const Key('1'),
                     alignment: Alignment.bottomCenter,

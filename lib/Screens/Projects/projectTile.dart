@@ -1,5 +1,6 @@
 import 'dart:html';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -120,11 +121,11 @@ class ProjectTile extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           if (project.isWideImage) const SizedBox(height: 50),
-                          Image.asset(
-                            project.appPreviewPath,
-                            height: 340 * project.imageHeightFactor,
-                            alignment: Alignment.centerRight,
-                          ),
+                          CachedNetworkImage(
+                              height: 340 * project.imageHeightFactor,
+                              width: (340 * project.imageHeightFactor) /
+                                  project.aspectRatio,
+                              imageUrl: 'assets/${project.appPreviewPath}'),
                           if (project.rendersAreFromBeta)
                             ProjectTileBetaWarning()
                         ],
@@ -159,11 +160,12 @@ class ProjectTile extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Center(
-                  child: Image.asset(
-                    project.appPreviewPath,
-                    height: 200 * project.imageHeightFactor,
-                    alignment: Alignment.centerRight,
-                  ),
+                  child: CachedNetworkImage(
+                      height: 200 * project.imageHeightFactor,
+                      width: (200 * project.imageHeightFactor) *
+                          project.aspectRatio,
+                      alignment: Alignment.centerRight,
+                      imageUrl: 'assets/${project.appPreviewPath}'),
                 ),
                 if (project.rendersAreFromBeta)
                   Center(child: ProjectTileBetaWarning()),
@@ -211,7 +213,7 @@ class ProjectTileBetaWarning extends StatelessWidget {
         ),
         const SizedBox(width: 10),
         Text(
-          'Image Shown are still in beta',
+          'Images Shown are still in beta',
           style: TextStyle(
               color: CustomColors(context: context).secondaryTextColor,
               fontFamily: "QuickSand"),

@@ -7,6 +7,7 @@ Project outlearn = Project(
     appPreviewName: 'outlearnAppPreview.png',
     directoryName: 'outlearn',
     iconName: 'icon.png',
+    aspectRatio: 5000 / 5554,
     rendersAreFromBeta: true,
     imageHeightFactor: 1,
     rightPadding: false,

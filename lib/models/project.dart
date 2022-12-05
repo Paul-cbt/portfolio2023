@@ -29,6 +29,7 @@ class Project {
   String? github;
 
   double imageHeightFactor;
+  double aspectRatio;
   bool rightPadding;
   bool alignOnLogoStart;
   bool isWideImage;
@@ -58,6 +59,7 @@ class Project {
       required this.appPreviewName,
       required this.lightThemeColor,
       required this.description,
+      required this.aspectRatio,
       this.imageHeightFactor = 1,
       this.alignOnLogoStart = false,
       this.rightPadding = false,

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio2/models/project.dart';
 import 'package:portfolio2/serices/theme.dart';
@@ -36,8 +37,8 @@ class ProjectTileTitleRow extends StatelessWidget {
                 ]),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(isBigSize(context) ? 20 : 10),
-              child: Image.asset(
-                '${project.iconPath}',
+              child: CachedNetworkImage(
+                imageUrl: "assets/${project.iconPath}",
                 height: isBigSize(context) ? 100 : 80,
                 width: isBigSize(context) ? 100 : 80,
                 fit: BoxFit.contain,

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -61,9 +62,10 @@ class _DroneVideoDialogState extends State<DroneVideoDialog> {
                           tag: widget.video.imagePath,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
-                            child: Image.network(
-                              "assets/drone/${widget.video.imagePath}",
-                              fit: BoxFit.cover,
+                            child: CachedNetworkImage(
+                              imageUrl:
+                                  "assets/drone/${widget.video.imagePath}",
+                              fit: BoxFit.fill,
                             ),
                           ),
                         ),

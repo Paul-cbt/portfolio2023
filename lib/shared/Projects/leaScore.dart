@@ -4,6 +4,7 @@ import 'package:portfolio2/models/project.dart';
 Project leaScore = Project(
     projectType: ProjectType.professional,
     name: 'LEA Score',
+    aspectRatio: 2770 / 3532,
     appPreviewName: 'leaScoreAppPreview.png',
     directoryName: 'leascore',
     iconName: 'icon.jpg',

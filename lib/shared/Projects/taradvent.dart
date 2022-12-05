@@ -4,6 +4,7 @@ import 'package:portfolio2/models/project.dart';
 Project taradvent = Project(
     projectType: ProjectType.personal,
     name: 'Taradvent',
+    aspectRatio: 3843 / 5005,
     appPreviewName: 'taradventPreview.png',
     directoryName: 'taradvent',
     iconName: 'icon.png',

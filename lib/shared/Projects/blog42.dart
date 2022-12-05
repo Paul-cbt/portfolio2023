@@ -7,6 +7,7 @@ Project blog42 = Project(
     appPreviewName: 'blogAppPreview.png',
     directoryName: 'blog42',
     iconName: 'icon.png',
+    aspectRatio: 2286 / 4500,
     imageHeightFactor: 0.7,
     isWideImage: true,
     isLogoCircle: true,
