@@ -25,4 +25,4 @@ Project kjmethod = Project(
     androidDownloadLink:
         'https://play.google.com/store/apps/details?id=com.kjes.kjmethod&hl=en&gl=US',
     description:
-        "Kalimah was building her online class when she stumbled upon OutLearn, at first, we wanted to adapt OutLearn a bit so she could iFrame a set of flashcards. After talking, we decided it would be far better to create a standalone app for her course. With this app, her student can directly learn their vocab, they have daily reminders and Kalimah can iFrame the flashcards on her website.");
+        "Kalimah was building her online class when she stumbled upon OutLearn. At first, we wanted to adapt OutLearn a bit so she could iFrame a set of flashcards. After talking, we decided it would be far better to create a standalone app for her course. With this app, her students can directly learn their vocab, they have daily reminders and Kalimah can iFrame the flashcards on her website.");
