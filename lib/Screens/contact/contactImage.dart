@@ -15,7 +15,7 @@ class ContactImage extends StatelessWidget {
         : const Radius.circular(70);
 
     double imageSize = isBigSize(context)
-        ? getMaxWidth(context) / 2.5
+        ? getMaxWidth(context) / 2
         : getMaxWidth(context) - 60 > MediaQuery.of(context).size.height / 2
             ? MediaQuery.of(context).size.height / 2
             : getMaxWidth(context) - 60;
@@ -25,7 +25,7 @@ class ContactImage extends StatelessWidget {
             height: imageSize,
             width: imageSize,
             decoration: BoxDecoration(
-                // color: CustomColors(context: context).deepBlue,
+                color: CustomColors(context: context).deepBlue,
                 borderRadius: BorderRadius.only(
                     bottomLeft: radius, bottomRight: radius, topRight: radius),
                 boxShadow: [
@@ -38,12 +38,10 @@ class ContactImage extends StatelessWidget {
                       offset: Offset(5, 5)),
                 ]),
             child: ZoomableImage(
-                height: imageSize,
-                width: imageSize,
                 fit: BoxFit.fill,
                 borderRadius: BorderRadius.only(
                     bottomLeft: radius, bottomRight: radius, topRight: radius),
-                path: "contactImage.jpg")),
+                path: "parisImage.jpg")),
       ],
     );
   }

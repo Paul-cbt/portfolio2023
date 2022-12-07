@@ -17,55 +17,69 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: isBigSize(context) ? MediaQuery.of(context).size.height : null,
       width: MediaQuery.of(context).size.width,
       padding: getMaxWidth(context) < 1000
           ? EdgeInsets.symmetric(horizontal: 30)
           : null,
-      child: Column(
-        children: [
-          SizedBox(
-              height: MediaQuery.of(context).size.height /
-                  (isBigSize(context) ? 10 : 20)),
-          Text(
-            "Contact",
-            style: TextStyle(
-                fontSize: 70,
-                color: CustomColors(context: context).deepBlue,
-                fontFamily: "QuickSandSemi",
-                fontWeight: FontWeight.w400),
-          ),
-          SizedBox(
-              height: MediaQuery.of(context).size.height /
-                  (isBigSize(context) ? 10 : 20)),
-          SizedBox(
-            height: isBigSize(context) ? getMaxWidth(context) / 2.5 : null,
-            width: getMaxWidth(context),
-            child: isBigSize(context)
-                ? Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ContactImage(),
-                      const SizedBox(width: 50),
-                      Expanded(
-                        child: ContactPageTextAndButton(),
-                      )
-                    ],
-                  )
-                : Column(
+      child: isBigSize(context)
+          ? Column(
+              children: [
+                SizedBox(height: MediaQuery.of(context).size.height / 20),
+                Text(
+                  "Contact",
+                  style: TextStyle(
+                      fontSize: 70,
+                      color: CustomColors(context: context).deepBlue,
+                      fontFamily: "QuickSandSemi",
+                      fontWeight: FontWeight.w400),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height / 20),
+                SizedBox(
+                    height: MediaQuery.of(context).size.height / 2,
+                    width: getMaxWidth(context),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        ContactImage(),
+                        const SizedBox(width: 50),
+                        Expanded(
+                          child: ContactPageTextAndButton(),
+                        )
+                      ],
+                    )),
+                SizedBox(height: MediaQuery.of(context).size.height / 10),
+                SafeArea(child: Footer()),
+                const SizedBox(height: 30),
+              ],
+            )
+          : Column(
+              children: [
+                SizedBox(height: MediaQuery.of(context).size.height / 20),
+                Text(
+                  "Contact",
+                  style: TextStyle(
+                      fontSize: 70,
+                      color: CustomColors(context: context).deepBlue,
+                      fontFamily: "QuickSandSemi",
+                      fontWeight: FontWeight.w400),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height / 20),
+                SizedBox(
+                  width: getMaxWidth(context),
+                  child: Column(
                     children: [
                       ContactImage(),
                       const SizedBox(height: 50),
                       ContactPageTextAndButton()
                     ],
                   ),
-          ),
-          SizedBox(
-              height: MediaQuery.of(context).size.height /
-                  (isBigSize(context) ? 10 : 50)),
-          SafeArea(child: Footer()),
-          const SizedBox(height: 30),
-        ],
-      ),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height / 50),
+                SafeArea(child: Footer()),
+                const SizedBox(height: 30),
+              ],
+            ),
     );
   }
 }

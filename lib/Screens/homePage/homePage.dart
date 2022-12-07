@@ -43,15 +43,20 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [HomePageImage(), HomePageText()],
                     )
-                  : Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const SizedBox(height: 20),
-                        HomePageImage(),
-                        Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
-                            child: HomePageText())
-                      ],
+                  : Padding(
+                      padding: const EdgeInsets.only(top: 30),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const SizedBox(height: 10),
+                          HomePageImage(),
+                          // const SizedBox(height: 30),
+                          Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 20),
+                              child: HomePageText()),
+                          const SizedBox(height: 20),
+                        ],
+                      ),
                     ),
             ),
           ),

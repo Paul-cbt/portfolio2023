@@ -36,7 +36,7 @@ class _AppPageState extends State<AppPage> {
   Widget build(BuildContext context) {
     if (!isInit) {
       precacheImage(const NetworkImage("assets/meHome.jpg"), context);
-      precacheImage(const NetworkImage("assets/aboutMe.jpg"), context);
+      precacheImage(const NetworkImage("assets/parisImage.jpg"), context);
       isInit = true;
     }
     return Scaffold(
