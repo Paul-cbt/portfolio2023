@@ -17,40 +17,55 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: isBigSize(context) ? MediaQuery.of(context).size.height : null,
+      constraints: BoxConstraints(
+        minHeight: MediaQuery.of(context).size.height - 50,
+      ),
       width: MediaQuery.of(context).size.width,
-      padding: getMaxWidth(context) < 1000
-          ? EdgeInsets.symmetric(horizontal: 30)
-          : null,
+      padding: EdgeInsets.symmetric(
+          horizontal:
+              MediaQuery.of(context).size.width > 1030 && !isBigSize(context)
+                  ? 0
+                  : 30),
       child: isBigSize(context)
-          ? Column(
+          ? Stack(
               children: [
-                SizedBox(height: MediaQuery.of(context).size.height / 20),
-                Text(
-                  "Contact",
-                  style: TextStyle(
-                      fontSize: 70,
-                      color: CustomColors(context: context).deepBlue,
-                      fontFamily: "QuickSandSemi",
-                      fontWeight: FontWeight.w400),
+                Center(
+                  child: Column(
+                    children: [
+                      Text(
+                        "Contact",
+                        style: TextStyle(
+                            fontSize: 70,
+                            color: CustomColors(context: context).deepBlue,
+                            fontFamily: "QuickSandSemi",
+                            fontWeight: FontWeight.w400),
+                      ),
+                      SizedBox(height: MediaQuery.of(context).size.height / 20),
+                      SizedBox(
+                          width: getMaxWidth(context),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              ContactImage(),
+                              const SizedBox(width: 50),
+                              Expanded(
+                                child: SizedBox(
+                                    height:
+                                        MediaQuery.of(context).size.height / 2,
+                                    child: ContactPageTextAndButton()),
+                              )
+                            ],
+                          )),
+                      const SizedBox(height: 100),
+                    ],
+                  ),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height / 20),
-                SizedBox(
-                    height: MediaQuery.of(context).size.height / 2,
-                    width: getMaxWidth(context),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        ContactImage(),
-                        const SizedBox(width: 50),
-                        Expanded(
-                          child: ContactPageTextAndButton(),
-                        )
-                      ],
-                    )),
-                SizedBox(height: MediaQuery.of(context).size.height / 10),
-                SafeArea(child: Footer()),
-                const SizedBox(height: 30),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  left: 0,
+                  child: SafeArea(child: Center(child: Footer())),
+                )
               ],
             )
           : Column(
@@ -66,8 +81,9 @@ class ContactPage extends StatelessWidget {
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height / 20),
                 SizedBox(
-                  width: getMaxWidth(context),
+                  width: 544,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ContactImage(),
                       const SizedBox(height: 50),

@@ -67,7 +67,7 @@ class _DroneTileState extends State<DroneTile> {
                   borderRadius: BorderRadius.circular(10),
                   child: CachedNetworkImage(
                     imageUrl: "assets/drone/${widget.video.imagePath}",
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),

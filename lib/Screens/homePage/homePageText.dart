@@ -12,7 +12,7 @@ class HomePageText extends StatelessWidget {
     double fontsize = isBigSize(context) ? 40 : 30;
     return RichText(
         text: TextSpan(
-            text: "Hello,\n",
+            text: "Hi,\n",
             style: TextStyle(
               fontSize: fontsize * 5 / 4,
               fontFamily: "QuickSand",

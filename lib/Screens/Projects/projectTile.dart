@@ -123,7 +123,7 @@ class ProjectTile extends StatelessWidget {
                           if (project.isWideImage) const SizedBox(height: 50),
                           CachedNetworkImage(
                               height: 340 * project.imageHeightFactor,
-                              width: (340 * project.imageHeightFactor) /
+                              width: (340 * project.imageHeightFactor) *
                                   project.aspectRatio,
                               imageUrl: 'assets/${project.appPreviewPath}'),
                           if (project.rendersAreFromBeta)
