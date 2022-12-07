@@ -20,4 +20,4 @@ Project leaScore = Project(
     darkThemeColor: Color(0xff28B1C2),
     website: 'https://leascore.com',
     description:
-        "When Pepijn reached out to me in April 2022 he wanted to convert his paper test into an app. In fact, for his Ph.D., he created a test to know enough about a person's habits, health & personality to evaluate his risk of developing a cardiovascular disease. I quickly showed him how much we could do with this app, and we embarked on a journey to create a robust health app that both Personal users and Health organizations could use.");
+        "When Pepijn reached out to me in April 2022 he wanted to convert his paper test into an app. In fact, for his Ph.D., he created a test to know enough about a person's habits, health & personality to evaluate their risk of developing a cardiovascular disease. I quickly showed him how much we could do with this app, and we embarked on a journey to create a robust health app that both Personal users and Health organizations could use.");

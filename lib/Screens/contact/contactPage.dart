@@ -17,7 +17,6 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: isBigSize(context) ? MediaQuery.of(context).size.height : null,
       width: MediaQuery.of(context).size.width,
       padding: getMaxWidth(context) < 1000
           ? EdgeInsets.symmetric(horizontal: 30)
@@ -60,8 +59,11 @@ class ContactPage extends StatelessWidget {
                     ],
                   ),
           ),
-          if (isBigSize(context)) Spacer(),
-          SafeArea(child: Footer())
+          SizedBox(
+              height: MediaQuery.of(context).size.height /
+                  (isBigSize(context) ? 10 : 50)),
+          SafeArea(child: Footer()),
+          const SizedBox(height: 30),
         ],
       ),
     );

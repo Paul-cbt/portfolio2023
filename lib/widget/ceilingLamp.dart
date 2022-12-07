@@ -15,11 +15,23 @@ class CeilingLamp extends StatefulWidget {
 
 class _CeilingLampState extends State<CeilingLamp> {
   bool isHovered = false;
+  bool? isLight;
+
+  void lampClick() async {
+    setState(() {
+      isLight = !isLight!;
+    });
+    await Future.delayed(const Duration(milliseconds: 100));
+    Provider.of<AppStateNotifier>(context, listen: false)
+        .updateTheme(!isLight!);
+  }
+
   @override
   Widget build(BuildContext context) {
+    isLight ??= Theme.of(context).brightness == Brightness.light;
     return GestureDetector(
       onTap: () {
-        Provider.of<AppStateNotifier>(context, listen: false).updateTheme();
+        lampClick();
       },
       child: MouseRegion(
         onEnter: (event) {
@@ -43,8 +55,8 @@ class _CeilingLampState extends State<CeilingLamp> {
                   : 60,
           duration: const Duration(milliseconds: 200),
           child: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 400),
-            child: Theme.of(context).brightness == Brightness.light
+            duration: const Duration(milliseconds: 1000),
+            child: isLight!
                 ? CachedNetworkImage(
                     imageUrl: "assets/ceiling-lamp.png",
                     width: getMaxWidth(context) > 500 ? 150 : 70,

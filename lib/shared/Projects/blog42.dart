@@ -7,7 +7,7 @@ Project blog42 = Project(
     appPreviewName: 'blogAppPreview.png',
     directoryName: 'blog42',
     iconName: 'icon.png',
-    aspectRatio: 2286 / 4500,
+    aspectRatio: 4500 / 2286,
     imageHeightFactor: 0.7,
     isWideImage: true,
     isLogoCircle: true,
@@ -19,4 +19,4 @@ Project blog42 = Project(
     website: 'https://blog-template-42.web.app/#/',
     github: 'https://github.com/Paul-cbt/blog_template',
     description:
-        "During my first months at my web dev bachelor, we were asked to create a website with the tools we wanted, the goal was just to have a coherent design and good content. I then copied the website I did to a new project and removed all the content to transform it into a template. ");
+        "During my first months at my web dev bachelor, we were asked to create a website with the tools we wanted, the goal was just to have a coherent design and good content. I then copied the website I made to a new project and removed all the content to transform it into a template.");

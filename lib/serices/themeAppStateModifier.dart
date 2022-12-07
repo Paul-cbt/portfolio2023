@@ -5,8 +5,8 @@ class AppStateNotifier extends ChangeNotifier {
 
   bool isDarkMode = false;
 
-  void updateTheme() async {
-    isDarkMode = !isDarkMode;
+  void updateTheme(bool newTheme) async {
+    isDarkMode = newTheme;
 
     notifyListeners();
   }

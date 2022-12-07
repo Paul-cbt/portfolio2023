@@ -79,7 +79,9 @@ class _DroneVideoDialogState extends State<DroneVideoDialog> {
                                   Icons.play_arrow,
                                   color: CustomColors(context: context)
                                       .homePageTextColor,
-                                  size: 100,
+                                  size: MediaQuery.of(context).size.width > 500
+                                      ? 100
+                                      : 70,
                                 ),
                                 if (widget.video.copyrightProblems)
                                   Row(

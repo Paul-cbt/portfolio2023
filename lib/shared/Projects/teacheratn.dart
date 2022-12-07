@@ -6,7 +6,7 @@ Project teacheratn = Project(
     name: 'TEACHERATN',
     appPreviewName: 'teacheratnAppPreview.png',
     directoryName: 'teacheratn',
-    aspectRatio: 838 / 2608,
+    aspectRatio: 2608 / 838,
     iconName: 'icon.png',
     clientName: 'Etienne',
     testimonial: [
