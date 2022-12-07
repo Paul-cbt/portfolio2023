@@ -24,4 +24,4 @@ Project teacheratn = Project(
     rightPadding: false,
     website: 'https://teacheratnapp.web.app/#/',
     description:
-        "Etienne was my first client, in the end of 2021 he reached out to me thanks to Fiverr. He wanted an app for his student where they could watch a youtube video with subtitles and directly be able to translate one word by clicking on it. They can then also add these words to their vocab and learn them. Later, we added a few other learning modes to help his student learn and have more fun while doing it!");
+        "Etienne was my first client. In the end of 2021 he reached out to me thanks to Fiverr. He wanted an app for his students where they could watch a youtube video with subtitles and directly be able to translate one word by clicking on it. They can then also add these words to their vocab and learn them. Later, we added a few other learning modes to help his students learn and have more fun while doing it!");
