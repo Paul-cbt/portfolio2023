@@ -14,7 +14,8 @@ class AboutMe extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(
           horizontal:
-              MediaQuery.of(context).size.width > 1030 || !isBigSize(context)
+              MediaQuery.of(context).size.width > getMaxWidth(context) + 30 ||
+                      !isBigSize(context)
                   ? 0
                   : 30),
       child: Column(

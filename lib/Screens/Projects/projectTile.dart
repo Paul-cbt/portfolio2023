@@ -26,7 +26,10 @@ class ProjectTile extends StatelessWidget {
       constraints: BoxConstraints(minHeight: 400),
       width: getMaxWidth(context) - (isBigSize(context) ? 0 : 40),
       margin: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width >= 1030 ? 0 : 20,
+          horizontal:
+              MediaQuery.of(context).size.width > getMaxWidth(context) + 30
+                  ? 0
+                  : 20,
           vertical: 20),
       padding: EdgeInsets.fromLTRB(30, 30, isBigSize(context) ? 0 : 30, 30),
       decoration: BoxDecoration(
