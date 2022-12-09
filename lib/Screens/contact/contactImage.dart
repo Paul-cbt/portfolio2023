@@ -25,9 +25,8 @@ class ContactImage extends StatelessWidget {
             height: imageSize,
             width: imageSize,
             decoration: BoxDecoration(
-                color: CustomColors(context: context).deepBlue,
                 borderRadius: BorderRadius.only(
-                    bottomLeft: radius, bottomRight: radius, topRight: radius),
+                    bottomLeft: radius, bottomRight: radius, topLeft: radius),
                 boxShadow: [
                   BoxShadow(
                       color: CustomColors(context: context)
@@ -39,7 +38,7 @@ class ContactImage extends StatelessWidget {
                 ]),
             child: ZoomableImage(
                 borderRadius: BorderRadius.only(
-                    bottomLeft: radius, bottomRight: radius, topRight: radius),
+                    bottomLeft: radius, bottomRight: radius, topLeft: radius),
                 path: "parisImage.jpg")),
       ],
     );

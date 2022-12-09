@@ -8,6 +8,7 @@ import 'package:portfolio2/Screens/contact/contactPage.dart';
 import 'package:portfolio2/Screens/drone/dronePage.dart';
 import 'package:portfolio2/Screens/homePage/homePage.dart';
 import 'package:portfolio2/Screens/navbar/horizontalNarBar.dart';
+import 'package:portfolio2/shared/maxWidth.dart';
 import 'package:portfolio2/widget/ceilingLamp.dart';
 import 'package:universal_html/html.dart' as uni;
 
@@ -45,16 +46,16 @@ class _AppPageState extends State<AppPage> {
           SingleChildScrollView(
             controller: _appPageScrollController,
             child: Column(
-              children: const [
-                HomePage(),
-                SizedBox(height: 50),
-                AboutMe(),
-                SizedBox(height: 80),
-                LatestProjectsPage(),
-                SizedBox(height: 80),
-                DronePage(),
-                SizedBox(height: 200),
-                ContactPage()
+              children: [
+                const HomePage(),
+                const SizedBox(height: 50),
+                const AboutMe(),
+                const SizedBox(height: 80),
+                const LatestProjectsPage(),
+                const SizedBox(height: 80),
+                const DronePage(),
+                SizedBox(height: isBigSize(context) ? 200 : 100),
+                const ContactPage()
               ],
             ),
           ),
