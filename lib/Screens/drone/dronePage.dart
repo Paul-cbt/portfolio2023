@@ -31,12 +31,16 @@ class _DronePageState extends State<DronePage> {
         ),
         const SizedBox(height: 15),
 
-        Text(
-          "As a secondary Hobby, I love to fly my DJI air 2s around. Here are a few of my best edits:",
-          style: TextStyle(
-              fontSize: 15,
-              fontFamily: "QuickSand",
-              color: CustomColors(context: context).secondaryTextColor),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Text(
+            "As a secondary Hobby, I love to fly my DJI air 2s around. Here are a few of my best edits:",
+            style: TextStyle(
+                fontSize: 15,
+                fontFamily: "QuickSand",
+                color: CustomColors(context: context).secondaryTextColor),
+            textAlign: TextAlign.center,
+          ),
         ),
         const SizedBox(height: 70),
         Center(
