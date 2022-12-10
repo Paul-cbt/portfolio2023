@@ -6,6 +6,7 @@ import 'package:portfolio2/Screens/drone/droneVideoDialog.dart';
 
 import 'package:portfolio2/models/droneVideo.dart';
 import 'package:portfolio2/serices/theme.dart';
+import 'package:portfolio2/shared/maxWidth.dart';
 
 class DroneTile extends StatefulWidget {
   final DroneVideo video;
@@ -83,7 +84,7 @@ class _DroneTileState extends State<DroneTile> {
                               CustomColors(context: context).homePageTextColor,
                           fontFamily: 'QuickSand',
                           fontWeight: FontWeight.bold,
-                          fontSize: 40),
+                          fontSize: isBigSize(context) ? 40 : 22),
                       textAlign: TextAlign.center,
                     ),
                   ),
