@@ -6,7 +6,6 @@ import 'package:portfolio2/Screens/drone/droneTile.dart';
 import 'package:portfolio2/serices/theme.dart';
 import 'package:portfolio2/shared/droneVideoList.dart';
 import 'package:portfolio2/shared/maxWidth.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class DronePage extends StatefulWidget {
   const DronePage({super.key});
@@ -30,7 +29,16 @@ class _DronePageState extends State<DronePage> {
               fontFamily: "QuickSandSemi",
               fontWeight: FontWeight.w400),
         ),
-        const SizedBox(height: 100),
+        const SizedBox(height: 15),
+
+        Text(
+          "As a secondary Hobby, I love to fly my DJI air 2s around. Here are a few of my best edits:",
+          style: TextStyle(
+              fontSize: 15,
+              fontFamily: "QuickSand",
+              color: CustomColors(context: context).secondaryTextColor),
+        ),
+        const SizedBox(height: 70),
         Center(
           child: CarouselSlider.builder(
               carouselController: controller,

@@ -123,7 +123,7 @@ class ContactPageTextAndButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
               child: TextButton.icon(
                   onPressed: () {
-                    launchUrlString("assets/cv.pdf");
+                    launchUrlString("assets/caubet_paul_cv.pdf");
                   },
                   icon: Icon(
                     Icons.download,

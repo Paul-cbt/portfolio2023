@@ -40,7 +40,7 @@ class CustomColors {
       : const Color(0xffFFF7F7F7);
 
   Color get aboutMeAccent => brightness() == Brightness.light
-      ? const Color(0xffA8D8EA)
+      ? const Color(0xFF6b7d98)
       : const Color(0xffA8D8EA);
 
   Color get projectTileColor => brightness() == Brightness.light

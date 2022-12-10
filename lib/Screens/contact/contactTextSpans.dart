@@ -17,7 +17,7 @@ List<InlineSpan> contactTextSpans(double fontSize, BuildContext context) {
         fontSize: fontSize,
         color: CustomColors(context: context).aboutMeAccent,
         fontWeight: FontWeight.bold,
-        fontFamily: "QuickSandSemi",
+        fontFamily: "QuickSandBold",
       ),
     ),
     TextSpan(
