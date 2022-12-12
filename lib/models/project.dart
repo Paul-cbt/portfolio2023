@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Project {
   ProjectType projectType;
+
   String name;
   ProjectDate dates;
   String subTitle;
@@ -34,6 +35,7 @@ class Project {
   bool alignOnLogoStart;
   bool isWideImage;
   bool isLogoCircle;
+  bool alignLogoToRight;
 
   bool rendersAreFromBeta;
 
@@ -55,6 +57,7 @@ class Project {
       this.rendersAreFromBeta = false,
       this.isWideImage = false,
       this.isLogoCircle = false,
+      this.alignLogoToRight = false,
       required this.directoryName,
       required this.appPreviewName,
       required this.lightThemeColor,

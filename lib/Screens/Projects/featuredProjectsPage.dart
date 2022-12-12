@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:portfolio2/Screens/Projects/fullProjectList.dart';
 import 'package:portfolio2/Screens/Projects/projectTile.dart';
+import 'package:portfolio2/Screens/Projects/seeFullProjectListButton.dart';
 import 'package:portfolio2/serices/theme.dart';
 import 'package:portfolio2/shared/Projects/projectList.dart';
 import 'package:portfolio2/shared/maxWidth.dart';
@@ -36,42 +37,7 @@ class LatestProjectsPage extends StatelessWidget {
             },
           ),
         ),
-        SizedBox(
-          width: getMaxWidth(context),
-          child: Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                InkWell(
-                  borderRadius: BorderRadius.circular(10),
-                  onTap: () {
-                    Navigator.of(context).push(CupertinoPageRoute(
-                      builder: (context) => const FullProjectList(),
-                    ));
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.arrow_right,
-                          color: CustomColors(context: context).deepBlue,
-                        ),
-                        Text(
-                          "See Full Project List",
-                          style: TextStyle(
-                              fontFamily: "QuickSand",
-                              color: CustomColors(context: context).deepBlue),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-        )
+        SeeFulProjectListButton()
       ],
     );
   }

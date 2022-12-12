@@ -47,8 +47,11 @@ class FullProjectList extends StatelessWidget {
                     (context, index) => Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            ProjectTile(
-                              project: projectList[index],
+                            SizedBox(
+                              width: getMaxWidth(context),
+                              child: ProjectTile(
+                                project: projectList[index],
+                              ),
                             ),
                           ],
                         ),

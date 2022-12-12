@@ -43,101 +43,99 @@ class ProjectTile extends StatelessWidget {
           ],
           color: CustomColors(context: context).projectTileColor,
           borderRadius: BorderRadius.circular(30)),
-      child: getMaxWidth(context) > 900
-          ? Stack(
-              fit: StackFit.loose,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ProjectTileTitleRow(project: project),
-                    const SizedBox(height: 10),
-                    ProjectTileDateDisplay(
-                      projectDate: project.dates,
-                    ),
-                    const SizedBox(height: 10),
-                    SizedBox(
-                      width: getMaxWidth(context) -
-                          220 -
-                          50 -
-                          (project.alignOnLogoStart ? 130 : 0) -
-                          (project.isWideImage ? 280 : 0),
-                      child: Text(
-                        project.description,
-                        style: TextStyle(
-                            color: CustomColors(context: context)
-                                .secondaryTextColor,
-                            fontSize: 18,
-                            fontStyle: FontStyle.italic,
-                            fontFamily: 'QuickSand'),
-                        textAlign: TextAlign.justify,
+      child: isBigSize(context)
+          ? Builder(builder: (context) {
+              double imageWidth =
+                  340 * project.imageHeightFactor * project.aspectRatio;
+              double rightPadding =
+                  imageWidth + 30 + (project.rightPadding ? 30 : 0);
+              return Stack(
+                fit: StackFit.loose,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ProjectTileTitleRow(project: project),
+                      const SizedBox(height: 10),
+                      ProjectTileDateDisplay(
+                        projectDate: project.dates,
+                        projectType: project.projectType,
                       ),
-                    ),
-                    const SizedBox(height: 10),
-                    if (project.projectType == ProjectType.professional)
-                      SizedBox(
-                        width: getMaxWidth(context) -
-                            220 -
-                            50 -
-                            (project.alignOnLogoStart ? 130 : 0) -
-                            (project.isWideImage ? 280 : 0),
-                        height: 40,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "${project.clientName} said: ",
-                              style: TextStyle(
-                                  color: project.textColor(context),
-                                  fontFamily: 'QuickSand',
-                                  fontSize: 15),
-                            ),
-                            Expanded(
-                              child: QuoteBuilder(
-                                testimonials: project.testimonial!,
+                      const SizedBox(height: 10),
+                      Padding(
+                        padding: EdgeInsets.only(right: rightPadding),
+                        child: Text(
+                          project.description,
+                          style: TextStyle(
+                              color: CustomColors(context: context)
+                                  .secondaryTextColor,
+                              fontSize: 18,
+                              fontStyle: FontStyle.italic,
+                              fontFamily: 'QuickSand'),
+                          textAlign: TextAlign.justify,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      if (project.projectType == ProjectType.professional)
+                        SizedBox(
+                          width: getMaxWidth(context) - imageWidth - 100,
+                          height: 40,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "${project.clientName} said: ",
+                                style: TextStyle(
+                                    color: project.textColor(context),
+                                    fontFamily: 'QuickSand',
+                                    fontSize: 15),
                               ),
-                            )
+                              Expanded(
+                                child: QuoteBuilder(
+                                  testimonials: project.testimonial!,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      const SizedBox(height: 30),
+                    ],
+                  ),
+                  Positioned(
+                      bottom: 0, child: ProjectTileLinkRow(project: project)),
+                  if (project.projectType == ProjectType.professional)
+                    Positioned(
+                      right: project.alignLogoToRight ? 30 : rightPadding,
+                      child: ClientWorkLogo(),
+                    ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Padding(
+                      padding:
+                          EdgeInsets.only(right: project.rightPadding ? 30 : 0),
+                      child: SizedBox(
+                        height: 340 +
+                            (project.rendersAreFromBeta || project.isWideImage
+                                ? 50
+                                : 0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            if (project.isWideImage) const SizedBox(height: 50),
+                            CachedNetworkImage(
+                                height: 340 * project.imageHeightFactor,
+                                width: imageWidth,
+                                imageUrl: 'assets/${project.appPreviewPath}'),
+                            if (project.rendersAreFromBeta)
+                              ProjectTileBetaWarning()
                           ],
                         ),
                       ),
-                    const SizedBox(height: 30),
-                  ],
-                ),
-                Positioned(
-                    bottom: 0, child: ProjectTileLinkRow(project: project)),
-                if (project.projectType == ProjectType.professional)
-                  Positioned(
-                    right: 220,
-                    child: ClientWorkLogo(),
-                  ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding:
-                        EdgeInsets.only(right: project.rightPadding ? 30 : 0),
-                    child: SizedBox(
-                      height: 340 +
-                          (project.rendersAreFromBeta || project.isWideImage
-                              ? 50
-                              : 0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          if (project.isWideImage) const SizedBox(height: 50),
-                          CachedNetworkImage(
-                              height: 340 * project.imageHeightFactor,
-                              width: (340 * project.imageHeightFactor) *
-                                  project.aspectRatio,
-                              imageUrl: 'assets/${project.appPreviewPath}'),
-                          if (project.rendersAreFromBeta)
-                            ProjectTileBetaWarning()
-                        ],
-                      ),
                     ),
-                  ),
-                )
-              ],
-            )
+                  )
+                ],
+              );
+            })
           : Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -146,6 +144,7 @@ class ProjectTile extends StatelessWidget {
                 const SizedBox(height: 10),
                 ProjectTileDateDisplay(
                   projectDate: project.dates,
+                  projectType: project.projectType,
                 ),
                 const SizedBox(height: 10),
                 SizedBox(

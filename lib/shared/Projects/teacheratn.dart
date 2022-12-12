@@ -9,6 +9,7 @@ Project teacheratn = Project(
     aspectRatio: 2608 / 838,
     iconName: 'icon.png',
     clientName: 'Etienne',
+    alignLogoToRight: true,
     testimonial: [
       'He is very good and talented! Merci paul!',
       'Amazing seller, I had to book him again for his quality work',
