@@ -8,7 +8,7 @@ Project outlearn = Project(
     directoryName: 'outlearn',
     iconName: 'icon.png',
     aspectRatio: 5000 / 5554,
-    rendersAreFromBeta: true,
+    rendersAreFromBeta: false,
     imageHeightFactor: 1,
     rightPadding: false,
     website: 'https://outlearnapp.com',
