@@ -18,24 +18,26 @@ class ProjectTileDateDisplay extends StatelessWidget {
         (projectDate.startDate.year != projectDate.endDate?.year) ||
             projectDate.endDate == null;
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        RichText(
-            text: TextSpan(
-                text: isDifferent
-                    ? '${projectDate.startDate.year} - ${projectDate.endDate?.year.toString() ?? 'Today'}'
-                    : projectDate.startDate.year.toString(),
-                style: TextStyle(
-                    color: CustomColors(context: context).secondaryTextColor,
-                    fontSize: 25,
-                    fontFamily: 'QuickSand'),
-                children: [
-              if (!isBigSize(context) &&
-                  projectType == ProjectType.professional)
-                TextSpan(
-                    text: ', Client Work',
-                    style: TextStyle(fontStyle: FontStyle.italic))
-            ]))
+        Expanded(
+          child: RichText(
+              text: TextSpan(
+                  text: isDifferent
+                      ? '${projectDate.startDate.year} - ${projectDate.endDate?.year.toString() ?? 'Today'}'
+                      : projectDate.startDate.year.toString(),
+                  style: TextStyle(
+                      color: CustomColors(context: context).secondaryTextColor,
+                      fontSize: 25,
+                      fontFamily: 'QuickSand'),
+                  children: [
+                if (!isBigSize(context) &&
+                    projectType == ProjectType.professional)
+                  TextSpan(
+                      text: ', Client Work',
+                      style: TextStyle(fontStyle: FontStyle.italic))
+              ])),
+        )
       ],
     );
   }
