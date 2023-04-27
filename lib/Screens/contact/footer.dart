@@ -38,8 +38,7 @@ class Footer extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      launchUrlString(
-                          'https://www.instagram.com/cpaul08/?hl=en');
+                      launchUrlString('https://www.instagram.com/cpaul08');
                     },
                     child: HoverAnimatedContainer(
                       hoverMargin: EdgeInsets.all(0),

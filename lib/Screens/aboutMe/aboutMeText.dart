@@ -24,7 +24,7 @@ class AboutMeText extends StatelessWidget {
 List<InlineSpan> aboutMeTextSpans(double fontSize, BuildContext context) {
   return [
     TextSpan(
-      text: "I'm Paul, a 18 years old developer from ",
+      text: "I'm Paul, a 19 years old developer from ",
       style: TextStyle(
         fontSize: fontSize,
         color: CustomColors(context: context).textColor,
