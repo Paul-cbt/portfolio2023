@@ -59,7 +59,7 @@ class Footer extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      launchUrlString('mailto:dev@paulcaubet.com');
+                      launchUrlString('mailto:paulcbt@outlook.com');
                     },
                     child: HoverAnimatedContainer(
                       hoverMargin: EdgeInsets.all(0),

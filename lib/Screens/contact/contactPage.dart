@@ -151,7 +151,7 @@ class ContactPageTextAndButton extends StatelessWidget {
               child: AnimatedButton(
                 borderRadius: 5,
                 onPress: () {
-                  launchUrlString('mailto:dev@paulcaubet.com');
+                  launchUrlString('mailto:paulcbt@outlook.com');
                 },
                 width: isBigSize(context) ? 200 : 140,
                 height: 50,
