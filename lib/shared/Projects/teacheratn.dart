@@ -18,7 +18,8 @@ Project teacheratn = Project(
     imageHeightFactor: 0.5,
     isWideImage: true,
     isLogoCircle: true,
-    dates: ProjectDate(startDate: DateTime(2021, 12), endDate: null),
+    dates:
+        ProjectDate(startDate: DateTime(2021, 12), endDate: DateTime(2023, 9)),
     subTitle: 'Multifunctional app for English courses',
     lightThemeColor: Color(0xffC61B22),
     darkThemeColor: Color(0xffC61B22),

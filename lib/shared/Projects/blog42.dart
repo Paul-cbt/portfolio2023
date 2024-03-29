@@ -11,7 +11,8 @@ Project blog42 = Project(
     imageHeightFactor: 0.7,
     isWideImage: true,
     isLogoCircle: true,
-    dates: ProjectDate(startDate: DateTime(2021, 12), endDate: null),
+    dates:
+        ProjectDate(startDate: DateTime(2021, 12), endDate: DateTime(2021, 12)),
     subTitle: 'Simple Blog Website template',
     lightThemeColor: Color(0xff1A1B20),
     darkThemeColor: const Color(0xFFF7F7F7),

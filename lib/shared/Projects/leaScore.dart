@@ -14,7 +14,8 @@ Project leaScore = Project(
       'Paul is highly professional in work, delivery speed and communication.',
       'He also thinks along with you for solutions making your app better performing, and more pleasant for the user than you imagined!'
     ],
-    dates: ProjectDate(startDate: DateTime(2022, 4), endDate: null),
+    dates:
+        ProjectDate(startDate: DateTime(2022, 4), endDate: DateTime(2023, 9)),
     subTitle: 'Health profiling app',
     lightThemeColor: Color(0xff28B1C2),
     darkThemeColor: Color(0xff28B1C2),
