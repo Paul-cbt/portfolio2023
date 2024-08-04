@@ -38,6 +38,6 @@ class AboutMeImage extends StatelessWidget {
         child: ZoomableImage(
             borderRadius: BorderRadius.only(
                 bottomLeft: radius, bottomRight: radius, topLeft: radius),
-            path: "avatar.jpeg"));
+            path: "avatar.jpg"));
   }
 }

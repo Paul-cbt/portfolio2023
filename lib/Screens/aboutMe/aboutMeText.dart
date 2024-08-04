@@ -124,5 +124,13 @@ List<InlineSpan> aboutMeTextSpans(double fontSize, BuildContext context) {
         fontFamily: "QuickSand",
       ),
     ),
+    TextSpan(
+      text: "\nI also express my creativity with videography and music :)",
+      style: TextStyle(
+        fontSize: fontSize,
+        color: CustomColors(context: context).textColor,
+        fontFamily: "QuickSand",
+      ),
+    ),
   ];
 }

@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -9,6 +10,7 @@ import 'package:portfolio2/Screens/drone/dronePage.dart';
 import 'package:portfolio2/Screens/homePage/homePage.dart';
 import 'package:portfolio2/Screens/navbar/horizontalNarBar.dart';
 import 'package:portfolio2/shared/maxWidth.dart';
+import 'package:portfolio2/shared/playMusic.dart';
 import 'package:portfolio2/widget/ceilingLamp.dart';
 import 'package:universal_html/html.dart' as uni;
 
@@ -19,8 +21,13 @@ class AppPage extends StatefulWidget {
   State<AppPage> createState() => _AppPageState();
 }
 
-class _AppPageState extends State<AppPage> {
+class _AppPageState extends State<AppPage> with SingleTickerProviderStateMixin {
   bool isInit = false;
+  bool hasPlayedMusic = false;
+  bool hasLoadedMusic = false;
+  late AnimationController iconController;
+
+  final assetsAudioPlayer = AssetsAudioPlayer.withId("music");
   @override
   void initState() {
     var loader = uni.document.getElementsByClassName('container');
@@ -29,7 +36,30 @@ class _AppPageState extends State<AppPage> {
       loader.first.remove();
       //remove the loading in the html file
     }
+    loadMusic();
+
+    iconController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 200));
     super.initState();
+  }
+
+  void startMusic() async {
+    if (!hasLoadedMusic) {
+      await loadMusic();
+    }
+    assetsAudioPlayer.playOrPause();
+  }
+
+  Future loadMusic() async {
+    await assetsAudioPlayer.open(Audio("audios/redemption.mp3"),
+        volume: 0.2,
+        autoStart: false,
+        respectSilentMode: true,
+        loopMode: LoopMode.single,
+        notificationSettings: NotificationSettings(),
+        playInBackground: PlayInBackground.disabledRestoreOnForeground,
+        showNotification: false);
+    hasLoadedMusic = true;
   }
 
   final ScrollController _appPageScrollController = ScrollController();
@@ -60,7 +90,47 @@ class _AppPageState extends State<AppPage> {
             ),
           ),
           HorizontalNavbar(scrollController: _appPageScrollController),
-          CeilingLamp()
+          CeilingLamp(),
+          if (!hasPlayedMusic &&
+              (MediaQuery.of(context).size.width > 700 ||
+                  _appPageScrollController.offset < 10 ||
+                  _appPageScrollController.offset >
+                      _appPageScrollController.position.maxScrollExtent - 50) &&
+              MediaQuery.of(context).size.width > 550)
+            Container(
+              alignment: Alignment.bottomRight,
+              child: PlayMusic(
+                  body: Container(),
+                  color: Theme.of(context).colorScheme.secondary,
+                  child: Material(
+                      color: Colors.transparent,
+                      child: Text('Start concert',
+                          style: TextStyle(
+                              fontSize: MediaQuery.of(context).size.width > 700
+                                  ? 20
+                                  : 13,
+                              color: Theme.of(context).colorScheme.secondary))),
+                  onSwipe: () {}),
+            ),
+          Container(
+            margin: EdgeInsets.only(right: 10, bottom: 10),
+            alignment: Alignment.bottomRight,
+            child: InkWell(
+              onTap: () {
+                startMusic();
+                setState(() {
+                  hasPlayedMusic = true;
+                });
+                iconController.status.index == 0
+                    ? iconController.forward()
+                    : iconController.reverse();
+              },
+              child: AnimatedIcon(
+                  size: 30,
+                  icon: AnimatedIcons.play_pause,
+                  progress: iconController),
+            ),
+          )
         ],
       ),
     );
