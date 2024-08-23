@@ -9,6 +9,7 @@ import 'package:portfolio2/Screens/contact/contactPage.dart';
 import 'package:portfolio2/Screens/drone/dronePage.dart';
 import 'package:portfolio2/Screens/homePage/homePage.dart';
 import 'package:portfolio2/Screens/navbar/horizontalNarBar.dart';
+import 'package:portfolio2/shared/Projects/projectList.dart';
 import 'package:portfolio2/shared/maxWidth.dart';
 import 'package:portfolio2/shared/playMusic.dart';
 import 'package:portfolio2/widget/ceilingLamp.dart';
@@ -26,7 +27,7 @@ class _AppPageState extends State<AppPage> with SingleTickerProviderStateMixin {
   bool hasPlayedMusic = false;
   bool hasLoadedMusic = false;
   late AnimationController iconController;
-
+  bool showConcert = true;
   final assetsAudioPlayer = AssetsAudioPlayer.withId("music");
   @override
   void initState() {
@@ -40,6 +41,16 @@ class _AppPageState extends State<AppPage> with SingleTickerProviderStateMixin {
 
     iconController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 200));
+    _appPageScrollController.addListener(
+      () {
+        if (showConcertBool != showConcert) {
+          setState(() {
+            showConcert = showConcertBool();
+            // print('updated');
+          });
+        }
+      },
+    );
     super.initState();
   }
 
@@ -60,6 +71,21 @@ class _AppPageState extends State<AppPage> with SingleTickerProviderStateMixin {
         playInBackground: PlayInBackground.disabledRestoreOnForeground,
         showNotification: false);
     hasLoadedMusic = true;
+  }
+
+  bool showConcertBool() {
+    bool show = true;
+    // print(
+    //     'current: ${_appPageScrollController.offset} max: ${_appPageScrollController.position.maxScrollExtent}');
+    try {
+      show = !hasPlayedMusic &&
+          (MediaQuery.of(context).size.width > 700 ||
+              _appPageScrollController.offset < 10 ||
+              _appPageScrollController.offset >
+                  _appPageScrollController.position.maxScrollExtent - 50) &&
+          MediaQuery.of(context).size.width > 550;
+    } catch (e) {}
+    return show;
   }
 
   final ScrollController _appPageScrollController = ScrollController();
@@ -91,12 +117,7 @@ class _AppPageState extends State<AppPage> with SingleTickerProviderStateMixin {
           ),
           HorizontalNavbar(scrollController: _appPageScrollController),
           CeilingLamp(),
-          if (!hasPlayedMusic &&
-              (MediaQuery.of(context).size.width > 700 ||
-                  _appPageScrollController.offset < 10 ||
-                  _appPageScrollController.offset >
-                      _appPageScrollController.position.maxScrollExtent - 50) &&
-              MediaQuery.of(context).size.width > 550)
+          if (showConcert)
             Container(
               alignment: Alignment.bottomRight,
               child: PlayMusic(

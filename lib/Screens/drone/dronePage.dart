@@ -15,7 +15,7 @@ class DronePage extends StatefulWidget {
 }
 
 class _DronePageState extends State<DronePage> {
-  CarouselController controller = CarouselController();
+  CarouselSliderController controller = CarouselSliderController();
 
   @override
   Widget build(BuildContext context) {

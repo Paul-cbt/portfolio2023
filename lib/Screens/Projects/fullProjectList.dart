@@ -62,7 +62,7 @@ class FullProjectList extends StatelessWidget {
                     EdgeInsets.only(top: 50, bottom: 50, left: 30, right: 30),
                 child: Center(
                   child: Text(
-                    "2 other professional projects under NDA that can't be shown yet",
+                    "4 other professional projects under NDA that can't be shown yet",
                     style: TextStyle(
                         fontFamily: "QuickSand",
                         fontSize: 20,

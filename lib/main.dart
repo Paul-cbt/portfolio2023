@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animated_theme/animated_theme_app.dart';
-import 'package:flutter_animated_theme/animation_type.dart';
+
 import 'package:portfolio2/Screens/Projects/fullProjectList.dart';
 import 'package:portfolio2/appPage.dart';
 import 'package:portfolio2/serices/theme.dart';
@@ -23,12 +22,12 @@ class PortfolioApp extends StatelessWidget {
       builder: (context, themeAppState, child) {
         //themeAppState to know if we're in dark mode or note.
         //change notifier provider will rebuild the ui if we change the darkmode variable in services/theme.dart
-        return AnimatedThemeApp(
+        return MaterialApp(
           key: Key('app'),
           title: 'Paul Caubet || Portfolio',
           theme: AppTheme.lightTheme,
-          animationDuration: Duration(milliseconds: 400),
-          animationType: AnimationType.FADE_ANIMATED_THEME,
+          // animationDuration: Duration(milliseconds: 400),
+          // animationType: AnimationType.FADE_ANIMATED_THEME,
           darkTheme: AppTheme.darkTheme,
           themeMode:
               themeAppState.isDarkMode ? ThemeMode.dark : ThemeMode.light,
