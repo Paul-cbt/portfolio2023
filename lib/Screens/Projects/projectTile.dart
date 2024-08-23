@@ -122,10 +122,11 @@ class ProjectTile extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             if (project.isWideImage) const SizedBox(height: 50),
-                            CachedNetworkImage(
-                                height: 340 * project.imageHeightFactor,
-                                width: imageWidth,
-                                imageUrl: 'assets/${project.appPreviewPath}'),
+                            Image.network(
+                              'assets/${project.appPreviewPath}',
+                              height: 340 * project.imageHeightFactor,
+                              width: imageWidth,
+                            ),
                             if (project.rendersAreFromBeta)
                               ProjectTileBetaWarning()
                           ],
@@ -162,12 +163,13 @@ class ProjectTile extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Center(
-                  child: CachedNetworkImage(
-                      height: 200 * project.imageHeightFactor,
-                      width: (200 * project.imageHeightFactor) *
-                          project.aspectRatio,
-                      alignment: Alignment.centerRight,
-                      imageUrl: 'assets/${project.appPreviewPath}'),
+                  child: Image.network(
+                    'assets/${project.appPreviewPath}',
+                    height: 200 * project.imageHeightFactor,
+                    width:
+                        (200 * project.imageHeightFactor) * project.aspectRatio,
+                    alignment: Alignment.centerRight,
+                  ),
                 ),
                 if (project.rendersAreFromBeta)
                   Center(child: ProjectTileBetaWarning()),

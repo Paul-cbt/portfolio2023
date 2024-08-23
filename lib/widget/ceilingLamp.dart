@@ -57,15 +57,15 @@ class _CeilingLampState extends State<CeilingLamp> {
           child: AnimatedSwitcher(
             duration: const Duration(milliseconds: 1000),
             child: isLight!
-                ? CachedNetworkImage(
-                    imageUrl: "assets/ceiling-lamp.png",
+                ? Image.network(
+                    "assets/ceiling-lamp.png",
                     width: getMaxWidth(context) > 500 ? 150 : 70,
                     key: const Key('0'),
                     alignment: Alignment.bottomCenter,
                     fit: BoxFit.fitWidth,
                   )
-                : CachedNetworkImage(
-                    imageUrl: "assets/ceiling-lamp-off.png",
+                : Image.network(
+                    "assets/ceiling-lamp-off.png",
                     width: getMaxWidth(context) > 500 ? 150 : 70,
                     key: const Key('1'),
                     alignment: Alignment.bottomCenter,

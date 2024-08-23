@@ -37,8 +37,8 @@ class ProjectTileTitleRow extends StatelessWidget {
                 ]),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(isBigSize(context) ? 20 : 10),
-              child: CachedNetworkImage(
-                imageUrl: "assets/${project.iconPath}",
+              child: Image.network(
+                "assets/${project.iconPath}",
                 height: isBigSize(context) ? 100 : 80,
                 width: isBigSize(context) ? 100 : 80,
                 fit: BoxFit.contain,

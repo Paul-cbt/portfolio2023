@@ -62,9 +62,8 @@ class _DroneVideoDialogState extends State<DroneVideoDialog> {
                           tag: widget.video.imagePath,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
-                            child: CachedNetworkImage(
-                              imageUrl:
-                                  "assets/drone/${widget.video.imagePath}",
+                            child: Image.network(
+                              "assets/drone/${widget.video.imagePath}",
                               fit: BoxFit.fill,
                             ),
                           ),

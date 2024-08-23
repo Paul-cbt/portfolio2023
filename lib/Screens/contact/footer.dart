@@ -23,7 +23,7 @@ class Footer extends StatelessWidget {
                   ? Alignment.centerLeft
                   : Alignment.bottomLeft,
               child: Text(
-                "Paul Caubet, 2023",
+                "Paul Caubet, 2024",
                 style: TextStyle(
                     color: CustomColors(context: context).deepBlue,
                     fontSize: 18,
