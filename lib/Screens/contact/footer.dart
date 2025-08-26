@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:hovering/hovering.dart';
 import 'package:portfolio2/serices/theme.dart';
 import 'package:portfolio2/shared/maxWidth.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class Footer extends StatelessWidget {

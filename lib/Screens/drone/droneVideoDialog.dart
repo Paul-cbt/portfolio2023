@@ -22,10 +22,12 @@ class _DroneVideoDialogState extends State<DroneVideoDialog> {
 
   @override
   void initState() {
-    _controller = YoutubePlayerController()
-      ..onInit = () {
-        _controller.cueVideoById(videoId: widget.video.id, startSeconds: 0);
-      };
+    _controller = YoutubePlayerController.fromVideoId(
+      videoId: widget.video.id,
+      startSeconds: 0,
+      autoPlay: false,
+    );
+
     super.initState();
   }
 

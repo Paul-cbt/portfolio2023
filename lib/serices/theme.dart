@@ -20,6 +20,7 @@ class CustomColors {
   Color get primaryColor => brightness() == Brightness.light
       ? const Color(0xff222831)
       : const Color(0xFFF7F7F7);
+      
 
   Color get secondaryColor => brightness() == Brightness.light
       ? const Color(0xFFA8D8EA)
